@@ -34,15 +34,17 @@ namespace com.echo.dntj
         private void menuOpen_Click(object sender, EventArgs e)
         {
             //打开任务文件
-            if (OD.ShowDialog() == DialogResult.OK && OD.FileName.Length!=0)
-                if (Util.DecompressRAR(OD.FileName, Application.StartupPath+"\\WinRar.exe", Util.curPath))  //解压缩cur年报文件
+            if (OD.ShowDialog() == DialogResult.OK && OD.FileName.Length != 0)
+            {
+                if (Util.DecompressRAR(OD.FileName, Application.StartupPath + "\\WinRar.exe", Util.curPath))  //解压缩cur年报文件
                     if (NeedSetNB())
                     {
                         frmSet form1 = new frmSet(Util.comPath);
                         form1.ShowDialog();
                         curFilePath = OD.FileName;
                     }
-                    RWOpened();
+                RWOpened();
+            }
         }
 
         private void menuClose_Click(object sender, EventArgs e)
