@@ -376,7 +376,7 @@
             this.cbKeys.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKeys.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.cbKeys.Name = "cbKeys";
-            this.cbKeys.Size = new System.Drawing.Size(121, 25);
+            this.cbKeys.Size = new System.Drawing.Size(300, 25);
             this.cbKeys.SelectedIndexChanged += new System.EventHandler(this.cbKeys_SelectedIndexChanged);
             // 
             // toolStripLabel3
