@@ -154,6 +154,7 @@
             this.menuSet.Name = "menuSet";
             this.menuSet.Size = new System.Drawing.Size(59, 21);
             this.menuSet.Text = "设置(&S)";
+            this.menuSet.Visible = false;
             // 
             // menuSetChk
             // 
