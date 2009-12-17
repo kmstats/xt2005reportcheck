@@ -77,7 +77,6 @@ namespace com.echo.dntj
 	        catch (Exception ex)
 	        {
                 throw new Exception(ex.Message);
-                return false;
 	        }
         }
 
@@ -310,7 +309,7 @@ namespace com.echo.dntj
         private void tbChk_Click(object sender, EventArgs e)
         {
             frmPrograss f = new frmPrograss();
-            f.Show();
+            f.Show(this);
             foreach (string section in cbSections.Items)
             {
                 int i = 0;
