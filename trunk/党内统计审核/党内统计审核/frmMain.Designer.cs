@@ -599,7 +599,7 @@
             this.MainMenuStrip = this.menuMain;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "党内统计审核 V1.0";
+            this.Text = "党内统计审核 2009年报";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
