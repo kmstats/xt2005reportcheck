@@ -123,7 +123,7 @@
             // menuOpen
             // 
             this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(151, 22);
+            this.menuOpen.Size = new System.Drawing.Size(152, 22);
             this.menuOpen.Text = "打开任务(&O)...";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
@@ -131,19 +131,19 @@
             // 
             this.menuClose.Enabled = false;
             this.menuClose.Name = "menuClose";
-            this.menuClose.Size = new System.Drawing.Size(151, 22);
+            this.menuClose.Size = new System.Drawing.Size(152, 22);
             this.menuClose.Text = "关闭任务(&C)";
             this.menuClose.Click += new System.EventHandler(this.menuClose_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(148, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // menuExit
             // 
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(151, 22);
+            this.menuExit.Size = new System.Drawing.Size(152, 22);
             this.menuExit.Text = "退出(&X)";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -154,7 +154,6 @@
             this.menuSet.Name = "menuSet";
             this.menuSet.Size = new System.Drawing.Size(59, 21);
             this.menuSet.Text = "设置(&S)";
-            this.menuSet.Visible = false;
             // 
             // menuSetChk
             // 
