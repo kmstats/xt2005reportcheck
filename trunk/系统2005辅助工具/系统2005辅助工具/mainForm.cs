@@ -19,5 +19,6 @@ namespace com.echo.XT2005
         {
             Close();
         }
+
     }
 }
