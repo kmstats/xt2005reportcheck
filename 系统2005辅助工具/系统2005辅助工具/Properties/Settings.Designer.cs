@@ -58,5 +58,41 @@ namespace com.echo.XT2005.Properties {
                 return ((string)(this["strLinkDB"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("组织树")]
+        public string strOrgTree {
+            get {
+                return ((string)(this["strOrgTree"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("计算")]
+        public string strCalc {
+            get {
+                return ((string)(this["strCalc"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("报表校核")]
+        public string strReportCheck {
+            get {
+                return ((string)(this["strReportCheck"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("校核公式")]
+        public string strCheckRule {
+            get {
+                return ((string)(this["strCheckRule"]));
+            }
+        }
     }
 }
