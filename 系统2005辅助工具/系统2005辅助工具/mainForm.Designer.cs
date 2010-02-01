@@ -46,9 +46,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.orgTree = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rptGrid = new System.Windows.Forms.DataGridView();
+            this.rptToolbar = new System.Windows.Forms.ToolStrip();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainAction)).BeginInit();
             this.mainTab.SuspendLayout();
@@ -60,7 +60,7 @@
             this.rptLeftPanel.Panel2.SuspendLayout();
             this.rptLeftPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rptGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -85,20 +85,21 @@
             // 
             // menuLinkDB
             // 
+            this.mainAction.SetAction(this.menuLinkDB, this.acLinkDB);
             this.menuLinkDB.Name = "menuLinkDB";
-            this.menuLinkDB.Size = new System.Drawing.Size(165, 22);
-            this.menuLinkDB.Text = "连接到数据库(&D)";
+            this.menuLinkDB.Size = new System.Drawing.Size(162, 22);
+            this.menuLinkDB.Text = "连接到数据库(&L)";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(162, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(159, 6);
             // 
             // 退出XToolStripMenuItem
             // 
             this.mainAction.SetAction(this.退出XToolStripMenuItem, this.acExit);
             this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
-            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.退出XToolStripMenuItem.Text = "退出(&X)";
             // 
             // mainToolbar
@@ -132,6 +133,7 @@
             // 
             this.acLinkDB.Text = global::com.echo.XT2005.Properties.Settings.Default.strLinkDB;
             this.acLinkDB.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.strLinkDB;
+            this.acLinkDB.Execute += new System.EventHandler(this.OnLinkDB);
             // 
             // mainTab
             // 
@@ -167,8 +169,8 @@
             // 
             // rptPanel.Panel2
             // 
-            this.rptPanel.Panel2.Controls.Add(this.dataGridView1);
-            this.rptPanel.Panel2.Controls.Add(this.toolStrip1);
+            this.rptPanel.Panel2.Controls.Add(this.rptGrid);
+            this.rptPanel.Panel2.Controls.Add(this.rptToolbar);
             this.rptPanel.Size = new System.Drawing.Size(784, 378);
             this.rptPanel.SplitterDistance = 261;
             this.rptPanel.TabIndex = 0;
@@ -204,7 +206,9 @@
             // 
             // orgTree
             // 
+            this.orgTree.CheckBoxes = true;
             this.orgTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orgTree.HotTracking = true;
             this.orgTree.Location = new System.Drawing.Point(3, 17);
             this.orgTree.Name = "orgTree";
             this.orgTree.Size = new System.Drawing.Size(255, 182);
@@ -220,6 +224,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = global::com.echo.XT2005.Properties.Settings.Default.strCheckRule;
             // 
+            // rptGrid
+            // 
+            this.rptGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rptGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rptGrid.Location = new System.Drawing.Point(0, 25);
+            this.rptGrid.Name = "rptGrid";
+            this.rptGrid.RowTemplate.Height = 23;
+            this.rptGrid.Size = new System.Drawing.Size(519, 353);
+            this.rptGrid.TabIndex = 1;
+            // 
+            // rptToolbar
+            // 
+            this.rptToolbar.Location = new System.Drawing.Point(0, 0);
+            this.rptToolbar.Name = "rptToolbar";
+            this.rptToolbar.Size = new System.Drawing.Size(519, 25);
+            this.rptToolbar.TabIndex = 0;
+            this.rptToolbar.Text = "toolStrip1";
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -229,24 +251,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(519, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(519, 353);
-            this.dataGridView1.TabIndex = 1;
             // 
             // mainForm
             // 
@@ -277,7 +281,7 @@
             this.rptLeftPanel.Panel2.ResumeLayout(false);
             this.rptLeftPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rptGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,8 +307,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TreeView orgTree;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.DataGridView rptGrid;
+        private System.Windows.Forms.ToolStrip rptToolbar;
     }
 }
 
