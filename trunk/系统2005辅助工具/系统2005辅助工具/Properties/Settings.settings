@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="com.echo.XT2005.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MAIN_TITLE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">系统2005辅助工具</Value>
+    </Setting>
+    <Setting Name="strExit" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">退出(&amp;X)</Value>
+    </Setting>
+    <Setting Name="strSystem" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">系统(&amp;S)</Value>
+    </Setting>
+    <Setting Name="strLinkDB" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">连接到数据库(&amp;L)</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
