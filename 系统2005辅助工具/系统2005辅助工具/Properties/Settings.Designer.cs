@@ -94,5 +94,70 @@ namespace com.echo.XT2005.Properties {
                 return ((string)(this["strCheckRule"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=KDBOLE6.1;Data Source=localhost,55321;Persist Security Info=True;Passwor" +
+            "d=MANAGER;User ID=SYSTEM;Initial Catalog=XT2007")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("设置报表参数(&O)")]
+        public string STR_SETRPT {
+            get {
+                return ((string)(this["STR_SETRPT"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("设置报表参数")]
+        public string STR_SETRPTFORM {
+            get {
+                return ((string)(this["STR_SETRPTFORM"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("报告期")]
+        public string STR_DURATION {
+            get {
+                return ((string)(this["STR_DURATION"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("报表模板")]
+        public string STR_TEMPLATE {
+            get {
+                return ((string)(this["STR_TEMPLATE"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("确定(&O)")]
+        public string STR_OK {
+            get {
+                return ((string)(this["STR_OK"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("取消(&C)")]
+        public string STR_CANCEL {
+            get {
+                return ((string)(this["STR_CANCEL"]));
+            }
+        }
     }
 }
