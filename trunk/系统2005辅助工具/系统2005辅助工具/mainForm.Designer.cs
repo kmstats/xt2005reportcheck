@@ -52,8 +52,8 @@
             this.d01Adapter = new com.echo.XT2005.XT2007TableAdapters.D01TableAdapter();
             this.mainAction = new com.echo.Controls.Actions.ActionList();
             this.acLinkDB = new com.echo.Controls.Actions.Action();
-            this.acExit = new com.echo.Controls.Actions.Action();
             this.acSet = new com.echo.Controls.Actions.Action();
+            this.acExit = new com.echo.Controls.Actions.Action();
             this.mainMenu.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -89,7 +89,7 @@
             this.退出XToolStripMenuItem});
             this.menuSystem.Name = "menuSystem";
             this.menuSystem.Size = new System.Drawing.Size(59, 21);
-            this.menuSystem.Text = global::com.echo.XT2005.Properties.Settings.Default.strSystem;
+            this.menuSystem.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_SYSTEM;
             // 
             // menuLinkDB
             // 
@@ -101,6 +101,7 @@
             // toolStripMenuItem2
             // 
             this.mainAction.SetAction(this.toolStripMenuItem2, this.acSet);
+            this.toolStripMenuItem2.Enabled = false;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItem2.Text = "设置报表参数(&O)";
@@ -152,7 +153,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(790, 384);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = global::com.echo.XT2005.Properties.Settings.Default.strReportCheck;
+            this.tabPage1.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_RPTCHECK;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // rptPanel
@@ -170,7 +171,7 @@
             this.rptPanel.Panel2.Controls.Add(this.rptGrid);
             this.rptPanel.Panel2.Controls.Add(this.rptToolbar);
             this.rptPanel.Size = new System.Drawing.Size(784, 378);
-            this.rptPanel.SplitterDistance = 261;
+            this.rptPanel.SplitterDistance = 175;
             this.rptPanel.TabIndex = 0;
             // 
             // rptLeftPanel
@@ -187,7 +188,7 @@
             // rptLeftPanel.Panel2
             // 
             this.rptLeftPanel.Panel2.Controls.Add(this.groupBox2);
-            this.rptLeftPanel.Size = new System.Drawing.Size(261, 378);
+            this.rptLeftPanel.Size = new System.Drawing.Size(175, 378);
             this.rptLeftPanel.SplitterDistance = 202;
             this.rptLeftPanel.TabIndex = 0;
             // 
@@ -197,10 +198,10 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(261, 202);
+            this.groupBox1.Size = new System.Drawing.Size(175, 202);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = global::com.echo.XT2005.Properties.Settings.Default.strOrgTree;
+            this.groupBox1.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_ORGTREE;
             // 
             // orgTree
             // 
@@ -211,9 +212,10 @@
             this.orgTree.Location = new System.Drawing.Point(3, 17);
             this.orgTree.Name = "orgTree";
             this.orgTree.ShowNodeToolTips = true;
-            this.orgTree.Size = new System.Drawing.Size(255, 182);
+            this.orgTree.Size = new System.Drawing.Size(169, 182);
             this.orgTree.TabIndex = 0;
             this.orgTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.orgTree_BeforeExpand);
+            this.orgTree.Click += new System.EventHandler(this.orgTree_Click);
             // 
             // groupBox2
             // 
@@ -221,10 +223,10 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(261, 172);
+            this.groupBox2.Size = new System.Drawing.Size(175, 172);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = global::com.echo.XT2005.Properties.Settings.Default.strCheckRule;
+            this.groupBox2.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_CHECKRULE;
             // 
             // listView1
             // 
@@ -233,7 +235,7 @@
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listView1.Location = new System.Drawing.Point(3, 17);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(255, 152);
+            this.listView1.Size = new System.Drawing.Size(169, 152);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -245,14 +247,14 @@
             this.rptGrid.Location = new System.Drawing.Point(0, 25);
             this.rptGrid.Name = "rptGrid";
             this.rptGrid.RowTemplate.Height = 23;
-            this.rptGrid.Size = new System.Drawing.Size(519, 353);
+            this.rptGrid.Size = new System.Drawing.Size(605, 353);
             this.rptGrid.TabIndex = 1;
             // 
             // rptToolbar
             // 
             this.rptToolbar.Location = new System.Drawing.Point(0, 0);
             this.rptToolbar.Name = "rptToolbar";
-            this.rptToolbar.Size = new System.Drawing.Size(519, 25);
+            this.rptToolbar.Size = new System.Drawing.Size(605, 25);
             this.rptToolbar.TabIndex = 0;
             this.rptToolbar.Text = "toolStrip1";
             // 
@@ -284,21 +286,24 @@
             // 
             // acLinkDB
             // 
-            this.acLinkDB.Text = global::com.echo.XT2005.Properties.Settings.Default.strLinkDB;
-            this.acLinkDB.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.strLinkDB;
+            this.acLinkDB.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_LINKDB;
+            this.acLinkDB.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_LINKDB;
+            this.acLinkDB.Update += new System.EventHandler(this.acLinkDB_Update);
             this.acLinkDB.Execute += new System.EventHandler(this.OnLinkDB);
-            // 
-            // acExit
-            // 
-            this.acExit.Text = global::com.echo.XT2005.Properties.Settings.Default.strExit;
-            this.acExit.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.strExit;
-            this.acExit.Execute += new System.EventHandler(this.OnExit);
             // 
             // acSet
             // 
+            this.acSet.Enabled = false;
             this.acSet.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_SETRPT;
             this.acSet.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_SETRPT;
+            this.acSet.Update += new System.EventHandler(this.acSet_Update);
             this.acSet.Execute += new System.EventHandler(this.OnSet);
+            // 
+            // acExit
+            // 
+            this.acExit.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_EXIT;
+            this.acExit.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_EXIT;
+            this.acExit.Execute += new System.EventHandler(this.OnExit);
             // 
             // mainForm
             // 

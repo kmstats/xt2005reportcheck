@@ -35,63 +35,63 @@ namespace com.echo.XT2005.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("退出(&X)")]
-        public string strExit {
+        public string STR_EXIT {
             get {
-                return ((string)(this["strExit"]));
+                return ((string)(this["STR_EXIT"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("系统(&S)")]
-        public string strSystem {
+        public string STR_SYSTEM {
             get {
-                return ((string)(this["strSystem"]));
+                return ((string)(this["STR_SYSTEM"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("连接到数据库(&L)")]
-        public string strLinkDB {
+        public string STR_LINKDB {
             get {
-                return ((string)(this["strLinkDB"]));
+                return ((string)(this["STR_LINKDB"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("组织树")]
-        public string strOrgTree {
+        public string STR_ORGTREE {
             get {
-                return ((string)(this["strOrgTree"]));
+                return ((string)(this["STR_ORGTREE"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("计算")]
-        public string strCalc {
+        public string STR_CALC {
             get {
-                return ((string)(this["strCalc"]));
+                return ((string)(this["STR_CALC"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("报表校核")]
-        public string strReportCheck {
+        public string STR_RPTCHECK {
             get {
-                return ((string)(this["strReportCheck"]));
+                return ((string)(this["STR_RPTCHECK"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("校核公式")]
-        public string strCheckRule {
+        public string STR_CHECKRULE {
             get {
-                return ((string)(this["strCheckRule"]));
+                return ((string)(this["STR_CHECKRULE"]));
             }
         }
         
@@ -157,6 +157,24 @@ namespace com.echo.XT2005.Properties {
         public string STR_CANCEL {
             get {
                 return ((string)(this["STR_CANCEL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("断开数据库连接(&C)")]
+        public string STR_CLOSEDB {
+            get {
+                return ((string)(this["STR_CLOSEDB"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("连接系统2005出错，请先启动系统20005")]
+        public string STR_NOLINK {
+            get {
+                return ((string)(this["STR_NOLINK"]));
             }
         }
     }
