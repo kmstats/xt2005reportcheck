@@ -27,41 +27,56 @@ namespace com.echo.XT2005
 
         private void OnLinkDB(object sender, EventArgs e)
         {
-            orgTree.Nodes.Clear();
+            //orgTree.Nodes.Clear();
             if (acLinkDB.Text == Settings.Default.STR_LINKDB)
-                GetOrg();
+                GetRptOrg();
             else
                 IsLinked = false;
         }
 
-        private void GetOrg()
+        //取得报表组织数
+        private void GetRptOrg()
         {
-            try
+            rptAdapter.FillByDuration(db.RPTREPORT, Settings.Default.USER_RPTID, Settings.Default.USER_BEGIN, Settings.Default.USER_END);
+            if (db.RPTREPORT != null)
             {
-                TreeNode pNode = null;
-                d01Adapter.FillByTopOrg(db.D01);
-                if (db.D01 != null)
+                foreach (XT2007.RPTREPORTRow row in db.RPTREPORT)
                 {
-                    XT2007.D01Row row = (XT2007.D01Row)db.D01.Rows[0];
-                    pNode = orgTree.Nodes.Add(row.D0107, row.D0101 + "(" + row.D0107 + ")");
-                    pNode.Name = row.D0107;
-                    pNode.ToolTipText = row.D0101 + "(" + row.D0107 + ")";
+                    lvOrg.Items.Add(row.D01_dictRow.D0101 + "(" + row.ORGID + ")");
                 }
-
-                d01Adapter.FillByPID(db.D01, pNode.Name);
-                foreach (XT2007.D01Row row in db.D01)
-                {
-                    TreeNode node = pNode.Nodes.Add(row.D0107, row.D0101 + "(" + row.D0107 + ")");
-                    node.Name = row.D0107;
-                    node.ToolTipText = row.D0101 + "(" + row.D0107 + ")";
-                }
-                IsLinked = true;
-            }
-            catch (System.Data.OleDb.OleDbException)
-            {
-                MessageBox.Show(Settings.Default.STR_NOLINK);
             }
         }
+
+
+        //取得组织树
+        //private void GetOrg()
+        //{
+        //    try
+        //    {
+        //        TreeNode pNode = null;
+        //        d01Adapter.FillByTopOrg(db.D01);
+        //        if (db.D01 != null)
+        //        {
+        //            XT2007.D01Row row = (XT2007.D01Row)db.D01.Rows[0];
+        //            pNode = orgTree.Nodes.Add(row.D0107, row.D0101 + "(" + row.D0107 + ")");
+        //            pNode.Name = row.D0107;
+        //            pNode.ToolTipText = row.D0101 + "(" + row.D0107 + ")";
+        //        }
+
+        //        d01Adapter.FillByPID(db.D01, pNode.Name);
+        //        foreach (XT2007.D01Row row in db.D01)
+        //        {
+        //            TreeNode node = pNode.Nodes.Add(row.D0107, row.D0101 + "(" + row.D0107 + ")");
+        //            node.Name = row.D0107;
+        //            node.ToolTipText = row.D0101 + "(" + row.D0107 + ")";
+        //        }
+        //        IsLinked = true;
+        //    }
+        //    catch (System.Data.OleDb.OleDbException)
+        //    {
+        //        MessageBox.Show(Settings.Default.STR_NOLINK);
+        //    }
+        //}
 
         //在展开node前，添加孙级节点
         private void orgTree_BeforeExpand(object sender, TreeViewCancelEventArgs e)

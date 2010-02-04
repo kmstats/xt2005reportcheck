@@ -31,6 +31,12 @@ namespace com.echo.XT2005 {
         
         private RPTTEMPLATECLASSDataTable tableRPTTEMPLATECLASS;
         
+        private D01_dictDataTable tableD01_dict;
+        
+        private RPTREPORTDataTable tableRPTREPORT;
+        
+        private global::System.Data.DataRelation relationD01_dict_RPTREPORT;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -65,6 +71,12 @@ namespace com.echo.XT2005 {
                 }
                 if ((ds.Tables["RPTTEMPLATECLASS"] != null)) {
                     base.Tables.Add(new RPTTEMPLATECLASSDataTable(ds.Tables["RPTTEMPLATECLASS"]));
+                }
+                if ((ds.Tables["D01_dict"] != null)) {
+                    base.Tables.Add(new D01_dictDataTable(ds.Tables["D01_dict"]));
+                }
+                if ((ds.Tables["RPTREPORT"] != null)) {
+                    base.Tables.Add(new RPTREPORTDataTable(ds.Tables["RPTREPORT"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -108,6 +120,24 @@ namespace com.echo.XT2005 {
         public RPTTEMPLATECLASSDataTable RPTTEMPLATECLASS {
             get {
                 return this.tableRPTTEMPLATECLASS;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public D01_dictDataTable D01_dict {
+            get {
+                return this.tableD01_dict;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public RPTREPORTDataTable RPTREPORT {
+            get {
+                return this.tableRPTREPORT;
             }
         }
         
@@ -179,6 +209,12 @@ namespace com.echo.XT2005 {
                 if ((ds.Tables["RPTTEMPLATECLASS"] != null)) {
                     base.Tables.Add(new RPTTEMPLATECLASSDataTable(ds.Tables["RPTTEMPLATECLASS"]));
                 }
+                if ((ds.Tables["D01_dict"] != null)) {
+                    base.Tables.Add(new D01_dictDataTable(ds.Tables["D01_dict"]));
+                }
+                if ((ds.Tables["RPTREPORT"] != null)) {
+                    base.Tables.Add(new RPTREPORTDataTable(ds.Tables["RPTREPORT"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -227,6 +263,19 @@ namespace com.echo.XT2005 {
                     this.tableRPTTEMPLATECLASS.InitVars();
                 }
             }
+            this.tableD01_dict = ((D01_dictDataTable)(base.Tables["D01_dict"]));
+            if ((initTable == true)) {
+                if ((this.tableD01_dict != null)) {
+                    this.tableD01_dict.InitVars();
+                }
+            }
+            this.tableRPTREPORT = ((RPTREPORTDataTable)(base.Tables["RPTREPORT"]));
+            if ((initTable == true)) {
+                if ((this.tableRPTREPORT != null)) {
+                    this.tableRPTREPORT.InitVars();
+                }
+            }
+            this.relationD01_dict_RPTREPORT = this.Relations["D01_dict_RPTREPORT"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -242,6 +291,14 @@ namespace com.echo.XT2005 {
             base.Tables.Add(this.tableT_RPT_DURATION);
             this.tableRPTTEMPLATECLASS = new RPTTEMPLATECLASSDataTable();
             base.Tables.Add(this.tableRPTTEMPLATECLASS);
+            this.tableD01_dict = new D01_dictDataTable();
+            base.Tables.Add(this.tableD01_dict);
+            this.tableRPTREPORT = new RPTREPORTDataTable();
+            base.Tables.Add(this.tableRPTREPORT);
+            this.relationD01_dict_RPTREPORT = new global::System.Data.DataRelation("D01_dict_RPTREPORT", new global::System.Data.DataColumn[] {
+                        this.tableD01_dict.D0107Column}, new global::System.Data.DataColumn[] {
+                        this.tableRPTREPORT.ORGIDColumn}, false);
+            this.Relations.Add(this.relationD01_dict_RPTREPORT);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -256,6 +313,16 @@ namespace com.echo.XT2005 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeRPTTEMPLATECLASS() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeD01_dict() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeRPTREPORT() {
             return false;
         }
         
@@ -317,6 +384,10 @@ namespace com.echo.XT2005 {
         public delegate void T_RPT_DURATIONRowChangeEventHandler(object sender, T_RPT_DURATIONRowChangeEvent e);
         
         public delegate void RPTTEMPLATECLASSRowChangeEventHandler(object sender, RPTTEMPLATECLASSRowChangeEvent e);
+        
+        public delegate void D01_dictRowChangeEventHandler(object sender, D01_dictRowChangeEvent e);
+        
+        public delegate void RPTREPORTRowChangeEventHandler(object sender, RPTREPORTRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1415,6 +1486,551 @@ namespace com.echo.XT2005 {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class D01_dictDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            
+            private global::System.Data.DataColumn columnD0101;
+            
+            private global::System.Data.DataColumn columnD0107;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public D01_dictDataTable() {
+                this.TableName = "D01_dict";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal D01_dictDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected D01_dictDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn D0101Column {
+                get {
+                    return this.columnD0101;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn D0107Column {
+                get {
+                    return this.columnD0107;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public D01_dictRow this[int index] {
+                get {
+                    return ((D01_dictRow)(this.Rows[index]));
+                }
+            }
+            
+            public event D01_dictRowChangeEventHandler D01_dictRowChanging;
+            
+            public event D01_dictRowChangeEventHandler D01_dictRowChanged;
+            
+            public event D01_dictRowChangeEventHandler D01_dictRowDeleting;
+            
+            public event D01_dictRowChangeEventHandler D01_dictRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddD01_dictRow(D01_dictRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public D01_dictRow AddD01_dictRow(string D0101, string D0107) {
+                D01_dictRow rowD01_dictRow = ((D01_dictRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        D0101,
+                        D0107};
+                rowD01_dictRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowD01_dictRow);
+                return rowD01_dictRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public D01_dictRow FindByD0107(string D0107) {
+                return ((D01_dictRow)(this.Rows.Find(new object[] {
+                            D0107})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                D01_dictDataTable cln = ((D01_dictDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new D01_dictDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnD0101 = base.Columns["D0101"];
+                this.columnD0107 = base.Columns["D0107"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnD0101 = new global::System.Data.DataColumn("D0101", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnD0101);
+                this.columnD0107 = new global::System.Data.DataColumn("D0107", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnD0107);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnD0107}, true));
+                this.columnD0101.MaxLength = 70;
+                this.columnD0107.AllowDBNull = false;
+                this.columnD0107.Unique = true;
+                this.columnD0107.MaxLength = 68;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public D01_dictRow NewD01_dictRow() {
+                return ((D01_dictRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new D01_dictRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(D01_dictRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.D01_dictRowChanged != null)) {
+                    this.D01_dictRowChanged(this, new D01_dictRowChangeEvent(((D01_dictRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.D01_dictRowChanging != null)) {
+                    this.D01_dictRowChanging(this, new D01_dictRowChangeEvent(((D01_dictRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.D01_dictRowDeleted != null)) {
+                    this.D01_dictRowDeleted(this, new D01_dictRowChangeEvent(((D01_dictRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.D01_dictRowDeleting != null)) {
+                    this.D01_dictRowDeleting(this, new D01_dictRowChangeEvent(((D01_dictRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveD01_dictRow(D01_dictRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                XT2007 ds = new XT2007();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "D01_dictDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class RPTREPORTDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            
+            private global::System.Data.DataColumn columnORGID;
+            
+            private global::System.Data.DataColumn columnTEMID;
+            
+            private global::System.Data.DataColumn columnTIMEBEGIN;
+            
+            private global::System.Data.DataColumn columnTIMEEND;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTREPORTDataTable() {
+                this.TableName = "RPTREPORT";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal RPTREPORTDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected RPTREPORTDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ORGIDColumn {
+                get {
+                    return this.columnORGID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TEMIDColumn {
+                get {
+                    return this.columnTEMID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TIMEBEGINColumn {
+                get {
+                    return this.columnTIMEBEGIN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TIMEENDColumn {
+                get {
+                    return this.columnTIMEEND;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTREPORTRow this[int index] {
+                get {
+                    return ((RPTREPORTRow)(this.Rows[index]));
+                }
+            }
+            
+            public event RPTREPORTRowChangeEventHandler RPTREPORTRowChanging;
+            
+            public event RPTREPORTRowChangeEventHandler RPTREPORTRowChanged;
+            
+            public event RPTREPORTRowChangeEventHandler RPTREPORTRowDeleting;
+            
+            public event RPTREPORTRowChangeEventHandler RPTREPORTRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddRPTREPORTRow(RPTREPORTRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTREPORTRow AddRPTREPORTRow(D01_dictRow parentD01_dictRowByD01_dict_RPTREPORT, string TEMID, string TIMEBEGIN, string TIMEEND) {
+                RPTREPORTRow rowRPTREPORTRow = ((RPTREPORTRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        TEMID,
+                        TIMEBEGIN,
+                        TIMEEND};
+                if ((parentD01_dictRowByD01_dict_RPTREPORT != null)) {
+                    columnValuesArray[0] = parentD01_dictRowByD01_dict_RPTREPORT[1];
+                }
+                rowRPTREPORTRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRPTREPORTRow);
+                return rowRPTREPORTRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTREPORTRow FindByORGIDTEMIDTIMEBEGINTIMEEND(string ORGID, string TEMID, string TIMEBEGIN, string TIMEEND) {
+                return ((RPTREPORTRow)(this.Rows.Find(new object[] {
+                            ORGID,
+                            TEMID,
+                            TIMEBEGIN,
+                            TIMEEND})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                RPTREPORTDataTable cln = ((RPTREPORTDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new RPTREPORTDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnORGID = base.Columns["ORGID"];
+                this.columnTEMID = base.Columns["TEMID"];
+                this.columnTIMEBEGIN = base.Columns["TIMEBEGIN"];
+                this.columnTIMEEND = base.Columns["TIMEEND"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnORGID = new global::System.Data.DataColumn("ORGID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnORGID);
+                this.columnTEMID = new global::System.Data.DataColumn("TEMID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTEMID);
+                this.columnTIMEBEGIN = new global::System.Data.DataColumn("TIMEBEGIN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIMEBEGIN);
+                this.columnTIMEEND = new global::System.Data.DataColumn("TIMEEND", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIMEEND);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnORGID,
+                                this.columnTEMID,
+                                this.columnTIMEBEGIN,
+                                this.columnTIMEEND}, true));
+                this.columnORGID.AllowDBNull = false;
+                this.columnORGID.MaxLength = 255;
+                this.columnTEMID.AllowDBNull = false;
+                this.columnTEMID.MaxLength = 16;
+                this.columnTIMEBEGIN.AllowDBNull = false;
+                this.columnTIMEBEGIN.MaxLength = 8;
+                this.columnTIMEEND.AllowDBNull = false;
+                this.columnTIMEEND.MaxLength = 8;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTREPORTRow NewRPTREPORTRow() {
+                return ((RPTREPORTRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new RPTREPORTRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(RPTREPORTRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.RPTREPORTRowChanged != null)) {
+                    this.RPTREPORTRowChanged(this, new RPTREPORTRowChangeEvent(((RPTREPORTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.RPTREPORTRowChanging != null)) {
+                    this.RPTREPORTRowChanging(this, new RPTREPORTRowChangeEvent(((RPTREPORTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.RPTREPORTRowDeleted != null)) {
+                    this.RPTREPORTRowDeleted(this, new RPTREPORTRowChangeEvent(((RPTREPORTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.RPTREPORTRowDeleting != null)) {
+                    this.RPTREPORTRowDeleting(this, new RPTREPORTRowChangeEvent(((RPTREPORTRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveRPTREPORTRow(RPTREPORTRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                XT2007 ds = new XT2007();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "RPTREPORTDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2070,6 +2686,131 @@ namespace com.echo.XT2005 {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class D01_dictRow : global::System.Data.DataRow {
+            
+            private D01_dictDataTable tableD01_dict;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal D01_dictRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableD01_dict = ((D01_dictDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string D0101 {
+                get {
+                    try {
+                        return ((string)(this[this.tableD01_dict.D0101Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“D01_dict”中列“D0101”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableD01_dict.D0101Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string D0107 {
+                get {
+                    return ((string)(this[this.tableD01_dict.D0107Column]));
+                }
+                set {
+                    this[this.tableD01_dict.D0107Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsD0101Null() {
+                return this.IsNull(this.tableD01_dict.D0101Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetD0101Null() {
+                this[this.tableD01_dict.D0101Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTREPORTRow[] GetRPTREPORTRows() {
+                if ((this.Table.ChildRelations["D01_dict_RPTREPORT"] == null)) {
+                    return new RPTREPORTRow[0];
+                }
+                else {
+                    return ((RPTREPORTRow[])(base.GetChildRows(this.Table.ChildRelations["D01_dict_RPTREPORT"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class RPTREPORTRow : global::System.Data.DataRow {
+            
+            private RPTREPORTDataTable tableRPTREPORT;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal RPTREPORTRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableRPTREPORT = ((RPTREPORTDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string ORGID {
+                get {
+                    return ((string)(this[this.tableRPTREPORT.ORGIDColumn]));
+                }
+                set {
+                    this[this.tableRPTREPORT.ORGIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TEMID {
+                get {
+                    return ((string)(this[this.tableRPTREPORT.TEMIDColumn]));
+                }
+                set {
+                    this[this.tableRPTREPORT.TEMIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TIMEBEGIN {
+                get {
+                    return ((string)(this[this.tableRPTREPORT.TIMEBEGINColumn]));
+                }
+                set {
+                    this[this.tableRPTREPORT.TIMEBEGINColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TIMEEND {
+                get {
+                    return ((string)(this[this.tableRPTREPORT.TIMEENDColumn]));
+                }
+                set {
+                    this[this.tableRPTREPORT.TIMEENDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public D01_dictRow D01_dictRow {
+                get {
+                    return ((D01_dictRow)(this.GetParentRow(this.Table.ParentRelations["D01_dict_RPTREPORT"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["D01_dict_RPTREPORT"]);
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2149,6 +2890,68 @@ namespace com.echo.XT2005 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public RPTTEMPLATECLASSRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class D01_dictRowChangeEvent : global::System.EventArgs {
+            
+            private D01_dictRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public D01_dictRowChangeEvent(D01_dictRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public D01_dictRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class RPTREPORTRowChangeEvent : global::System.EventArgs {
+            
+            private RPTREPORTRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTREPORTRowChangeEvent(RPTREPORTRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTREPORTRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3845,6 +4648,1198 @@ namespace com.echo.XT2005.XT2007TableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class D01_dictTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public D01_dictTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "D01_dict";
+            tableMapping.ColumnMappings.Add("D0101", "D0101");
+            tableMapping.ColumnMappings.Add("D0107", "D0107");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"D01\" WHERE (((? = 1 AND \"D0101\" IS NULL) OR (\"D0101\" = ?)) AND (\"D01" +
+                "07\" = ?))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_D0101", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0101", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_D0101", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0101", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_D0107", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0107", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""D01"" (""D0101"", ""D0107"", ""D0111"", ""D0121"", ""D0123"", ""D0127"", ""D0127A"", ""D0144"", ""D0165"", ""D0168"", ""D0171"", ""D0174"", ""D0177"", ""D0181"", ""D0184"", ""SORTID"", ""D0191"", ""D0199"", ""D0179"", ""D0193"", ""D0194"", ""D0178"", ""D0192"") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0101", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0101", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0107", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0107", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0111", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0111", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0121", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0121", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0123", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0123", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0127", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0127", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0127A", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0127A", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0144", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0144", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0165", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0165", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0168", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0168", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0171", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0171", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0174", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0174", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0177", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0177", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0181", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0181", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0184", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0184", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("SORTID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "SORTID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0191", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0191", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0199", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0199", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0179", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0179", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0193", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0193", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0194", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0194", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0178", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0178", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0192", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0192", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"D01\" SET \"D0101\" = ?, \"D0107\" = ? WHERE (((? = 1 AND \"D0101\" IS NULL) OR " +
+                "(\"D0101\" = ?)) AND (\"D0107\" = ?))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0101", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0101", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("D0107", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0107", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_D0101", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0101", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_D0101", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0101", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_D0107", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "D0107", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::com.echo.XT2005.Properties.Settings.Default.ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT D0101, D0107 FROM \"PUBLIC\".D01";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(XT2007.D01_dictDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual XT2007.D01_dictDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            XT2007.D01_dictDataTable dataTable = new XT2007.D01_dictDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(XT2007.D01_dictDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(XT2007 dataSet) {
+            return this.Adapter.Update(dataSet, "D01_dict");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_D0101, string Original_D0107) {
+            if ((Original_D0101 == null)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_D0101));
+            }
+            if ((Original_D0107 == null)) {
+                throw new global::System.ArgumentNullException("Original_D0107");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_D0107));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    string D0101, 
+                    string D0107, 
+                    string D0111, 
+                    string D0121, 
+                    string D0123, 
+                    string D0127, 
+                    string D0127A, 
+                    string D0144, 
+                    string D0165, 
+                    string D0168, 
+                    string D0171, 
+                    string D0174, 
+                    string D0177, 
+                    string D0181, 
+                    string D0184, 
+                    string SORTID, 
+                    string D0191, 
+                    string D0199, 
+                    global::System.Nullable<int> D0179, 
+                    string D0193, 
+                    string D0194, 
+                    global::System.Nullable<int> D0178, 
+                    string D0192) {
+            if ((D0101 == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(D0101));
+            }
+            if ((D0107 == null)) {
+                throw new global::System.ArgumentNullException("D0107");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(D0107));
+            }
+            if ((D0111 == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(D0111));
+            }
+            if ((D0121 == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(D0121));
+            }
+            if ((D0123 == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(D0123));
+            }
+            if ((D0127 == null)) {
+                throw new global::System.ArgumentNullException("D0127");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(D0127));
+            }
+            if ((D0127A == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(D0127A));
+            }
+            if ((D0144 == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(D0144));
+            }
+            if ((D0165 == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(D0165));
+            }
+            if ((D0168 == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(D0168));
+            }
+            if ((D0171 == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(D0171));
+            }
+            if ((D0174 == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(D0174));
+            }
+            if ((D0177 == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(D0177));
+            }
+            if ((D0181 == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(D0181));
+            }
+            if ((D0184 == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(D0184));
+            }
+            if ((SORTID == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(SORTID));
+            }
+            if ((D0191 == null)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(D0191));
+            }
+            if ((D0199 == null)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(D0199));
+            }
+            if ((D0179.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(D0179.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((D0193 == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(D0193));
+            }
+            if ((D0194 == null)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(D0194));
+            }
+            if ((D0178.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((int)(D0178.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((D0192 == null)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(D0192));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string D0101, string D0107, string Original_D0101, string Original_D0107) {
+            if ((D0101 == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(D0101));
+            }
+            if ((D0107 == null)) {
+                throw new global::System.ArgumentNullException("D0107");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(D0107));
+            }
+            if ((Original_D0101 == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_D0101));
+            }
+            if ((Original_D0107 == null)) {
+                throw new global::System.ArgumentNullException("Original_D0107");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_D0107));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string D0101, string Original_D0101, string Original_D0107) {
+            return this.Update(D0101, Original_D0107, Original_D0101, Original_D0107);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class RPTREPORTTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public RPTREPORTTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "RPTREPORT";
+            tableMapping.ColumnMappings.Add("ORGID", "ORGID");
+            tableMapping.ColumnMappings.Add("TEMID", "TEMID");
+            tableMapping.ColumnMappings.Add("TIMEBEGIN", "TIMEBEGIN");
+            tableMapping.ColumnMappings.Add("TIMEEND", "TIMEEND");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""RPTREPORT"" WHERE ((""ORGID"" = ?) AND (""TEMID"" = ?) AND (""TEMVER"" = ?) AND (""TIMEBEGIN"" = ?) AND (""TIMEEND"" = ?) AND (""EDITSTATUS"" = ?) AND (""DATASTATUS"" = ?) AND (""CHECKINSTATUS"" = ?) AND (""CHECKOUTSTATUS"" = ?) AND (""CLASSID"" = ?) AND (""OUTERCALCULATESTATUS"" = ?))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ORGID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ORGID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TEMID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TEMID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TEMVER", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TEMVER", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TIMEBEGIN", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEBEGIN", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TIMEEND", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEEND", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_EDITSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "EDITSTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DATASTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CHECKINSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CHECKINSTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CHECKOUTSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CHECKOUTSTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CLASSID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CLASSID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_OUTERCALCULATESTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OUTERCALCULATESTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"RPTREPORT\" (\"REPORTID\", \"REPORTTYPE\", \"ORGID\", \"TEMID\", \"TEMVER\", \"T" +
+                "IMEBEGIN\", \"TIMEEND\", \"EDITSTATUS\", \"DATASTATUS\", \"CHECKINSTATUS\", \"CHECKOUTSTAT" +
+                "US\", \"CLASSID\", \"OUTERCALCULATESTATUS\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
+                " ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("REPORTID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "REPORTID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("REPORTTYPE", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "REPORTTYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ORGID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ORGID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TEMID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TEMID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TEMVER", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TEMVER", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TIMEBEGIN", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEBEGIN", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TIMEEND", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEEND", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("EDITSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "EDITSTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DATASTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CHECKINSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CHECKINSTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CHECKOUTSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CHECKOUTSTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CLASSID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CLASSID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("OUTERCALCULATESTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OUTERCALCULATESTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""RPTREPORT"" SET ""ORGID"" = ?, ""TEMID"" = ?, ""TEMVER"" = ?, ""TIMEBEGIN"" = ?, ""TIMEEND"" = ?, ""EDITSTATUS"" = ?, ""DATASTATUS"" = ?, ""CHECKINSTATUS"" = ?, ""CHECKOUTSTATUS"" = ?, ""CLASSID"" = ?, ""OUTERCALCULATESTATUS"" = ? WHERE ((""ORGID"" = ?) AND (""TEMID"" = ?) AND (""TEMVER"" = ?) AND (""TIMEBEGIN"" = ?) AND (""TIMEEND"" = ?) AND (""EDITSTATUS"" = ?) AND (""DATASTATUS"" = ?) AND (""CHECKINSTATUS"" = ?) AND (""CHECKOUTSTATUS"" = ?) AND (""CLASSID"" = ?) AND (""OUTERCALCULATESTATUS"" = ?))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ORGID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ORGID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TEMID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TEMID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TEMVER", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TEMVER", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TIMEBEGIN", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEBEGIN", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TIMEEND", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEEND", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("EDITSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "EDITSTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DATASTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CHECKINSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CHECKINSTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CHECKOUTSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CHECKOUTSTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CLASSID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CLASSID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("OUTERCALCULATESTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OUTERCALCULATESTATUS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ORGID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ORGID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TEMID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TEMID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TEMVER", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TEMVER", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TIMEBEGIN", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEBEGIN", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TIMEEND", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEEND", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_EDITSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "EDITSTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DATASTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CHECKINSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CHECKINSTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CHECKOUTSTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CHECKOUTSTATUS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CLASSID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CLASSID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_OUTERCALCULATESTATUS", global::System.Data.OleDb.OleDbType.WChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OUTERCALCULATESTATUS", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::com.echo.XT2005.Properties.Settings.Default.ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ORGID, TEMID, TIMEBEGIN, TIMEEND FROM \"PUBLIC\".RPTREPORT";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT ORGID, LEFT (TEMID, 4) AS TEMID, TIMEBEGIN, TIMEEND FROM \"PUBLIC\".RPTREPOR" +
+                "T GROUP BY ORGID, LEFT (TEMID, 4), TIMEBEGIN, TIMEEND HAVING (LEFT (TEMID, 4) = " +
+                "?) AND (TIMEBEGIN = ?) AND (TIMEEND = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Param1", global::System.Data.OleDb.OleDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TIMEBEGIN", global::System.Data.OleDb.OleDbType.WChar, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEBEGIN", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TIMEEND", global::System.Data.OleDb.OleDbType.WChar, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TIMEEND", global::System.Data.DataRowVersion.Current, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(XT2007.RPTREPORTDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual XT2007.RPTREPORTDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            XT2007.RPTREPORTDataTable dataTable = new XT2007.RPTREPORTDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByDuration(XT2007.RPTREPORTDataTable dataTable, string Param1, string TIMEBEGIN, string TIMEEND) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Param1 == null)) {
+                throw new global::System.ArgumentNullException("Param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
+            if ((TIMEBEGIN == null)) {
+                throw new global::System.ArgumentNullException("TIMEBEGIN");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(TIMEBEGIN));
+            }
+            if ((TIMEEND == null)) {
+                throw new global::System.ArgumentNullException("TIMEEND");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(TIMEEND));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual XT2007.RPTREPORTDataTable GetDataByDuration(string Param1, string TIMEBEGIN, string TIMEEND) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Param1 == null)) {
+                throw new global::System.ArgumentNullException("Param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
+            if ((TIMEBEGIN == null)) {
+                throw new global::System.ArgumentNullException("TIMEBEGIN");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(TIMEBEGIN));
+            }
+            if ((TIMEEND == null)) {
+                throw new global::System.ArgumentNullException("TIMEEND");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(TIMEEND));
+            }
+            XT2007.RPTREPORTDataTable dataTable = new XT2007.RPTREPORTDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(XT2007.RPTREPORTDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(XT2007 dataSet) {
+            return this.Adapter.Update(dataSet, "RPTREPORT");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_ORGID, string Original_TEMID, string Original_TEMVER, string Original_TIMEBEGIN, string Original_TIMEEND, string Original_EDITSTATUS, string Original_DATASTATUS, string Original_CHECKINSTATUS, string Original_CHECKOUTSTATUS, string Original_CLASSID, string Original_OUTERCALCULATESTATUS) {
+            if ((Original_ORGID == null)) {
+                throw new global::System.ArgumentNullException("Original_ORGID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ORGID));
+            }
+            if ((Original_TEMID == null)) {
+                throw new global::System.ArgumentNullException("Original_TEMID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_TEMID));
+            }
+            if ((Original_TEMVER == null)) {
+                throw new global::System.ArgumentNullException("Original_TEMVER");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_TEMVER));
+            }
+            if ((Original_TIMEBEGIN == null)) {
+                throw new global::System.ArgumentNullException("Original_TIMEBEGIN");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_TIMEBEGIN));
+            }
+            if ((Original_TIMEEND == null)) {
+                throw new global::System.ArgumentNullException("Original_TIMEEND");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_TIMEEND));
+            }
+            if ((Original_EDITSTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_EDITSTATUS");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_EDITSTATUS));
+            }
+            if ((Original_DATASTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_DATASTATUS");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_DATASTATUS));
+            }
+            if ((Original_CHECKINSTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_CHECKINSTATUS");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_CHECKINSTATUS));
+            }
+            if ((Original_CHECKOUTSTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_CHECKOUTSTATUS");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_CHECKOUTSTATUS));
+            }
+            if ((Original_CLASSID == null)) {
+                throw new global::System.ArgumentNullException("Original_CLASSID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_CLASSID));
+            }
+            if ((Original_OUTERCALCULATESTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_OUTERCALCULATESTATUS");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_OUTERCALCULATESTATUS));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string REPORTID, string REPORTTYPE, string ORGID, string TEMID, string TEMVER, string TIMEBEGIN, string TIMEEND, string EDITSTATUS, string DATASTATUS, string CHECKINSTATUS, string CHECKOUTSTATUS, string CLASSID, string OUTERCALCULATESTATUS) {
+            if ((REPORTID == null)) {
+                throw new global::System.ArgumentNullException("REPORTID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(REPORTID));
+            }
+            if ((REPORTTYPE == null)) {
+                throw new global::System.ArgumentNullException("REPORTTYPE");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(REPORTTYPE));
+            }
+            if ((ORGID == null)) {
+                throw new global::System.ArgumentNullException("ORGID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ORGID));
+            }
+            if ((TEMID == null)) {
+                throw new global::System.ArgumentNullException("TEMID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(TEMID));
+            }
+            if ((TEMVER == null)) {
+                throw new global::System.ArgumentNullException("TEMVER");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(TEMVER));
+            }
+            if ((TIMEBEGIN == null)) {
+                throw new global::System.ArgumentNullException("TIMEBEGIN");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(TIMEBEGIN));
+            }
+            if ((TIMEEND == null)) {
+                throw new global::System.ArgumentNullException("TIMEEND");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(TIMEEND));
+            }
+            if ((EDITSTATUS == null)) {
+                throw new global::System.ArgumentNullException("EDITSTATUS");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(EDITSTATUS));
+            }
+            if ((DATASTATUS == null)) {
+                throw new global::System.ArgumentNullException("DATASTATUS");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(DATASTATUS));
+            }
+            if ((CHECKINSTATUS == null)) {
+                throw new global::System.ArgumentNullException("CHECKINSTATUS");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(CHECKINSTATUS));
+            }
+            if ((CHECKOUTSTATUS == null)) {
+                throw new global::System.ArgumentNullException("CHECKOUTSTATUS");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(CHECKOUTSTATUS));
+            }
+            if ((CLASSID == null)) {
+                throw new global::System.ArgumentNullException("CLASSID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(CLASSID));
+            }
+            if ((OUTERCALCULATESTATUS == null)) {
+                throw new global::System.ArgumentNullException("OUTERCALCULATESTATUS");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(OUTERCALCULATESTATUS));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string ORGID, 
+                    string TEMID, 
+                    string TEMVER, 
+                    string TIMEBEGIN, 
+                    string TIMEEND, 
+                    string EDITSTATUS, 
+                    string DATASTATUS, 
+                    string CHECKINSTATUS, 
+                    string CHECKOUTSTATUS, 
+                    string CLASSID, 
+                    string OUTERCALCULATESTATUS, 
+                    string Original_ORGID, 
+                    string Original_TEMID, 
+                    string Original_TEMVER, 
+                    string Original_TIMEBEGIN, 
+                    string Original_TIMEEND, 
+                    string Original_EDITSTATUS, 
+                    string Original_DATASTATUS, 
+                    string Original_CHECKINSTATUS, 
+                    string Original_CHECKOUTSTATUS, 
+                    string Original_CLASSID, 
+                    string Original_OUTERCALCULATESTATUS) {
+            if ((ORGID == null)) {
+                throw new global::System.ArgumentNullException("ORGID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ORGID));
+            }
+            if ((TEMID == null)) {
+                throw new global::System.ArgumentNullException("TEMID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(TEMID));
+            }
+            if ((TEMVER == null)) {
+                throw new global::System.ArgumentNullException("TEMVER");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(TEMVER));
+            }
+            if ((TIMEBEGIN == null)) {
+                throw new global::System.ArgumentNullException("TIMEBEGIN");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(TIMEBEGIN));
+            }
+            if ((TIMEEND == null)) {
+                throw new global::System.ArgumentNullException("TIMEEND");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(TIMEEND));
+            }
+            if ((EDITSTATUS == null)) {
+                throw new global::System.ArgumentNullException("EDITSTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(EDITSTATUS));
+            }
+            if ((DATASTATUS == null)) {
+                throw new global::System.ArgumentNullException("DATASTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(DATASTATUS));
+            }
+            if ((CHECKINSTATUS == null)) {
+                throw new global::System.ArgumentNullException("CHECKINSTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(CHECKINSTATUS));
+            }
+            if ((CHECKOUTSTATUS == null)) {
+                throw new global::System.ArgumentNullException("CHECKOUTSTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(CHECKOUTSTATUS));
+            }
+            if ((CLASSID == null)) {
+                throw new global::System.ArgumentNullException("CLASSID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(CLASSID));
+            }
+            if ((OUTERCALCULATESTATUS == null)) {
+                throw new global::System.ArgumentNullException("OUTERCALCULATESTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(OUTERCALCULATESTATUS));
+            }
+            if ((Original_ORGID == null)) {
+                throw new global::System.ArgumentNullException("Original_ORGID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_ORGID));
+            }
+            if ((Original_TEMID == null)) {
+                throw new global::System.ArgumentNullException("Original_TEMID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_TEMID));
+            }
+            if ((Original_TEMVER == null)) {
+                throw new global::System.ArgumentNullException("Original_TEMVER");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_TEMVER));
+            }
+            if ((Original_TIMEBEGIN == null)) {
+                throw new global::System.ArgumentNullException("Original_TIMEBEGIN");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_TIMEBEGIN));
+            }
+            if ((Original_TIMEEND == null)) {
+                throw new global::System.ArgumentNullException("Original_TIMEEND");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_TIMEEND));
+            }
+            if ((Original_EDITSTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_EDITSTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_EDITSTATUS));
+            }
+            if ((Original_DATASTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_DATASTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_DATASTATUS));
+            }
+            if ((Original_CHECKINSTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_CHECKINSTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_CHECKINSTATUS));
+            }
+            if ((Original_CHECKOUTSTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_CHECKOUTSTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_CHECKOUTSTATUS));
+            }
+            if ((Original_CLASSID == null)) {
+                throw new global::System.ArgumentNullException("Original_CLASSID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_CLASSID));
+            }
+            if ((Original_OUTERCALCULATESTATUS == null)) {
+                throw new global::System.ArgumentNullException("Original_OUTERCALCULATESTATUS");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_OUTERCALCULATESTATUS));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string TEMVER, 
+                    string EDITSTATUS, 
+                    string DATASTATUS, 
+                    string CHECKINSTATUS, 
+                    string CHECKOUTSTATUS, 
+                    string CLASSID, 
+                    string OUTERCALCULATESTATUS, 
+                    string Original_ORGID, 
+                    string Original_TEMID, 
+                    string Original_TEMVER, 
+                    string Original_TIMEBEGIN, 
+                    string Original_TIMEEND, 
+                    string Original_EDITSTATUS, 
+                    string Original_DATASTATUS, 
+                    string Original_CHECKINSTATUS, 
+                    string Original_CHECKOUTSTATUS, 
+                    string Original_CLASSID, 
+                    string Original_OUTERCALCULATESTATUS) {
+            return this.Update(Original_ORGID, Original_TEMID, TEMVER, Original_TIMEBEGIN, Original_TIMEEND, EDITSTATUS, DATASTATUS, CHECKINSTATUS, CHECKOUTSTATUS, CLASSID, OUTERCALCULATESTATUS, Original_ORGID, Original_TEMID, Original_TEMVER, Original_TIMEBEGIN, Original_TIMEEND, Original_EDITSTATUS, Original_DATASTATUS, Original_CHECKINSTATUS, Original_CHECKOUTSTATUS, Original_CLASSID, Original_OUTERCALCULATESTATUS);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -3862,6 +5857,10 @@ namespace com.echo.XT2005.XT2007TableAdapters {
         private T_RPT_DURATIONTableAdapter _t_RPT_DURATIONTableAdapter;
         
         private RPTTEMPLATECLASSTableAdapter _rPTTEMPLATECLASSTableAdapter;
+        
+        private D01_dictTableAdapter _d01_dictTableAdapter;
+        
+        private RPTREPORTTableAdapter _rPTREPORTTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -3917,6 +5916,32 @@ namespace com.echo.XT2005.XT2007TableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
+            "", "System.Drawing.Design.UITypeEditor")]
+        public D01_dictTableAdapter D01_dictTableAdapter {
+            get {
+                return this._d01_dictTableAdapter;
+            }
+            set {
+                this._d01_dictTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
+            "", "System.Drawing.Design.UITypeEditor")]
+        public RPTREPORTTableAdapter RPTREPORTTableAdapter {
+            get {
+                return this._rPTREPORTTableAdapter;
+            }
+            set {
+                this._rPTREPORTTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -3945,6 +5970,14 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                             && (this._rPTTEMPLATECLASSTableAdapter.Connection != null))) {
                     return this._rPTTEMPLATECLASSTableAdapter.Connection;
                 }
+                if (((this._d01_dictTableAdapter != null) 
+                            && (this._d01_dictTableAdapter.Connection != null))) {
+                    return this._d01_dictTableAdapter.Connection;
+                }
+                if (((this._rPTREPORTTableAdapter != null) 
+                            && (this._rPTREPORTTableAdapter.Connection != null))) {
+                    return this._rPTREPORTTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -3966,6 +5999,12 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                 if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._d01_dictTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._rPTREPORTTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -3976,21 +6015,30 @@ namespace com.echo.XT2005.XT2007TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateUpdatedRows(XT2007 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._d01_dictTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.D01_dict.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._d01_dictTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._rPTREPORTTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.RPTREPORT.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._rPTREPORTTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._rPTTEMPLATECLASSTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._t_RPT_DURATIONTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.T_RPT_DURATION.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._t_RPT_DURATIONTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4003,6 +6051,15 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._t_RPT_DURATIONTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.T_RPT_DURATION.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._t_RPT_DURATIONTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -4012,6 +6069,22 @@ namespace com.echo.XT2005.XT2007TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateInsertedRows(XT2007 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._d01_dictTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.D01_dict.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._d01_dictTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._rPTREPORTTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.RPTREPORT.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._rPTREPORTTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -4020,19 +6093,19 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._t_RPT_DURATIONTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.T_RPT_DURATION.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._t_RPT_DURATIONTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._d01TableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.D01.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._d01TableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._t_RPT_DURATIONTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.T_RPT_DURATION.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._t_RPT_DURATIONTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4045,14 +6118,6 @@ namespace com.echo.XT2005.XT2007TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateDeletedRows(XT2007 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._d01TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.D01.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._d01TableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._t_RPT_DURATIONTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.T_RPT_DURATION.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -4061,11 +6126,35 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._d01TableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.D01.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._d01TableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._rPTTEMPLATECLASSTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._rPTREPORTTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.RPTREPORT.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rPTREPORTTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._d01_dictTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.D01_dict.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._d01_dictTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4116,6 +6205,14 @@ namespace com.echo.XT2005.XT2007TableAdapters {
             }
             if (((this._rPTTEMPLATECLASSTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._rPTTEMPLATECLASSTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
+            }
+            if (((this._d01_dictTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._d01_dictTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
+            }
+            if (((this._rPTREPORTTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._rPTREPORTTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -4174,6 +6271,24 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     if (this._rPTTEMPLATECLASSTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._rPTTEMPLATECLASSTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._rPTTEMPLATECLASSTableAdapter.Adapter);
+                    }
+                }
+                if ((this._d01_dictTableAdapter != null)) {
+                    revertConnections.Add(this._d01_dictTableAdapter, this._d01_dictTableAdapter.Connection);
+                    this._d01_dictTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._d01_dictTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._d01_dictTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._d01_dictTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._d01_dictTableAdapter.Adapter);
+                    }
+                }
+                if ((this._rPTREPORTTableAdapter != null)) {
+                    revertConnections.Add(this._rPTREPORTTableAdapter, this._rPTREPORTTableAdapter.Connection);
+                    this._rPTREPORTTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._rPTREPORTTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._rPTREPORTTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._rPTREPORTTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._rPTREPORTTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -4245,6 +6360,14 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                 if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
                     this._rPTTEMPLATECLASSTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._rPTTEMPLATECLASSTableAdapter]));
                     this._rPTTEMPLATECLASSTableAdapter.Transaction = null;
+                }
+                if ((this._d01_dictTableAdapter != null)) {
+                    this._d01_dictTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._d01_dictTableAdapter]));
+                    this._d01_dictTableAdapter.Transaction = null;
+                }
+                if ((this._rPTREPORTTableAdapter != null)) {
+                    this._rPTREPORTTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._rPTREPORTTableAdapter]));
+                    this._rPTREPORTTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

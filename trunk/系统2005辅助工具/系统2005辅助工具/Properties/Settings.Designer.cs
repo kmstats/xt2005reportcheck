@@ -26,9 +26,9 @@ namespace com.echo.XT2005.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("系统2005辅助工具")]
-        public string MAIN_TITLE {
+        public string STR_TITLE {
             get {
-                return ((string)(this["MAIN_TITLE"]));
+                return ((string)(this["STR_TITLE"]));
             }
         }
         
@@ -175,6 +175,54 @@ namespace com.echo.XT2005.Properties {
         public string STR_NOLINK {
             get {
                 return ((string)(this["STR_NOLINK"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0200")]
+        public string USER_RPTID {
+            get {
+                return ((string)(this["USER_RPTID"]));
+            }
+            set {
+                this["USER_RPTID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2009年度")]
+        public string USER_DURATION {
+            get {
+                return ((string)(this["USER_DURATION"]));
+            }
+            set {
+                this["USER_DURATION"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20090101")]
+        public string USER_BEGIN {
+            get {
+                return ((string)(this["USER_BEGIN"]));
+            }
+            set {
+                this["USER_BEGIN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20091231")]
+        public string USER_END {
+            get {
+                return ((string)(this["USER_END"]));
+            }
+            set {
+                this["USER_END"] = value;
             }
         }
     }

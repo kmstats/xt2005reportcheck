@@ -42,7 +42,6 @@
             this.rptPanel = new System.Windows.Forms.SplitContainer();
             this.rptLeftPanel = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.orgTree = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.rptGrid = new System.Windows.Forms.DataGridView();
@@ -54,6 +53,8 @@
             this.acLinkDB = new com.echo.Controls.Actions.Action();
             this.acSet = new com.echo.Controls.Actions.Action();
             this.acExit = new com.echo.Controls.Actions.Action();
+            this.rptAdapter = new com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter();
+            this.lvOrg = new System.Windows.Forms.ListView();
             this.mainMenu.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -171,7 +172,7 @@
             this.rptPanel.Panel2.Controls.Add(this.rptGrid);
             this.rptPanel.Panel2.Controls.Add(this.rptToolbar);
             this.rptPanel.Size = new System.Drawing.Size(784, 378);
-            this.rptPanel.SplitterDistance = 175;
+            this.rptPanel.SplitterDistance = 174;
             this.rptPanel.TabIndex = 0;
             // 
             // rptLeftPanel
@@ -188,34 +189,20 @@
             // rptLeftPanel.Panel2
             // 
             this.rptLeftPanel.Panel2.Controls.Add(this.groupBox2);
-            this.rptLeftPanel.Size = new System.Drawing.Size(175, 378);
+            this.rptLeftPanel.Size = new System.Drawing.Size(174, 378);
             this.rptLeftPanel.SplitterDistance = 202;
             this.rptLeftPanel.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.orgTree);
+            this.groupBox1.Controls.Add(this.lvOrg);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(175, 202);
+            this.groupBox1.Size = new System.Drawing.Size(174, 202);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_ORGTREE;
-            // 
-            // orgTree
-            // 
-            this.orgTree.CheckBoxes = true;
-            this.orgTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orgTree.FullRowSelect = true;
-            this.orgTree.HotTracking = true;
-            this.orgTree.Location = new System.Drawing.Point(3, 17);
-            this.orgTree.Name = "orgTree";
-            this.orgTree.ShowNodeToolTips = true;
-            this.orgTree.Size = new System.Drawing.Size(169, 182);
-            this.orgTree.TabIndex = 0;
-            this.orgTree.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.orgTree_BeforeExpand);
-            this.orgTree.Click += new System.EventHandler(this.orgTree_Click);
             // 
             // groupBox2
             // 
@@ -223,7 +210,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(175, 172);
+            this.groupBox2.Size = new System.Drawing.Size(174, 172);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_CHECKRULE;
@@ -235,7 +222,7 @@
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listView1.Location = new System.Drawing.Point(3, 17);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(169, 152);
+            this.listView1.Size = new System.Drawing.Size(168, 152);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -247,14 +234,14 @@
             this.rptGrid.Location = new System.Drawing.Point(0, 25);
             this.rptGrid.Name = "rptGrid";
             this.rptGrid.RowTemplate.Height = 23;
-            this.rptGrid.Size = new System.Drawing.Size(605, 353);
+            this.rptGrid.Size = new System.Drawing.Size(606, 353);
             this.rptGrid.TabIndex = 1;
             // 
             // rptToolbar
             // 
             this.rptToolbar.Location = new System.Drawing.Point(0, 0);
             this.rptToolbar.Name = "rptToolbar";
-            this.rptToolbar.Size = new System.Drawing.Size(605, 25);
+            this.rptToolbar.Size = new System.Drawing.Size(606, 25);
             this.rptToolbar.TabIndex = 0;
             this.rptToolbar.Text = "toolStrip1";
             // 
@@ -305,6 +292,21 @@
             this.acExit.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_EXIT;
             this.acExit.Execute += new System.EventHandler(this.OnExit);
             // 
+            // rptAdapter
+            // 
+            this.rptAdapter.ClearBeforeFill = true;
+            // 
+            // lvOrg
+            // 
+            this.lvOrg.CheckBoxes = true;
+            this.lvOrg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvOrg.Location = new System.Drawing.Point(3, 17);
+            this.lvOrg.MultiSelect = false;
+            this.lvOrg.Name = "lvOrg";
+            this.lvOrg.Size = new System.Drawing.Size(168, 182);
+            this.lvOrg.TabIndex = 0;
+            this.lvOrg.UseCompatibleStateImageBehavior = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -320,7 +322,7 @@
             this.MainMenuStrip = this.mainMenu;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = global::com.echo.XT2005.Properties.Settings.Default.MAIN_TITLE;
+            this.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_TITLE;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
@@ -361,7 +363,6 @@
         private System.Windows.Forms.SplitContainer rptPanel;
         private System.Windows.Forms.SplitContainer rptLeftPanel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView orgTree;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView rptGrid;
         private System.Windows.Forms.ToolStrip rptToolbar;
@@ -370,6 +371,8 @@
         private System.Windows.Forms.ListView listView1;
         private com.echo.Controls.Actions.Action acSet;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter rptAdapter;
+        private System.Windows.Forms.ListView lvOrg;
     }
 }
 
