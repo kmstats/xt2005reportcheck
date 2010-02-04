@@ -5,14 +5,19 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using com.echo.XT2005.Properties;
 
 namespace com.echo.XT2005
 {
     public partial class mainForm : Form
     {
+        Boolean IsLinked = false;
+
         public mainForm()
         {
             InitializeComponent();
+            System.Diagnostics.Process p = System.Diagnostics.Process.Start("regsvr32", " /s kdbole6.dll");
+            p.WaitForInputIdle();
         }
 
         private void OnExit(object sender, EventArgs e)
@@ -23,6 +28,14 @@ namespace com.echo.XT2005
         private void OnLinkDB(object sender, EventArgs e)
         {
             orgTree.Nodes.Clear();
+            if (acLinkDB.Text == Settings.Default.STR_LINKDB)
+                GetOrg();
+            else
+                IsLinked = false;
+        }
+
+        private void GetOrg()
+        {
             try
             {
                 TreeNode pNode = null;
@@ -42,10 +55,11 @@ namespace com.echo.XT2005
                     node.Name = row.D0107;
                     node.ToolTipText = row.D0101 + "(" + row.D0107 + ")";
                 }
+                IsLinked = true;
             }
-            catch (Exception ex)
+            catch (System.Data.OleDb.OleDbException)
             {
-                throw new Exception("连接系统2005出错，是否启动系统20005？:" + ex);
+                MessageBox.Show(Settings.Default.STR_NOLINK);
             }
         }
 
@@ -76,6 +90,22 @@ namespace com.echo.XT2005
         {
             setForm form = new setForm();
             form.ShowDialog();
+        }
+
+        private void acSet_Update(object sender, EventArgs e)
+        {
+            acSet.Enabled = IsLinked;
+        }
+
+        private void acLinkDB_Update(object sender, EventArgs e)
+        {
+            acLinkDB.Text = IsLinked ? Settings.Default.STR_CLOSEDB : Settings.Default.STR_LINKDB;
+            acLinkDB.ToolTipText = IsLinked ? Settings.Default.STR_CLOSEDB : Settings.Default.STR_LINKDB;
+        }
+
+        private void orgTree_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
