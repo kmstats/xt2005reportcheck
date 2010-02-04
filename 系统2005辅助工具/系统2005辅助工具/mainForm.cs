@@ -18,6 +18,8 @@ namespace com.echo.XT2005
             InitializeComponent();
             System.Diagnostics.Process p = System.Diagnostics.Process.Start("regsvr32", " /s kdbole6.dll");
             p.WaitForInputIdle();
+
+            axCell1.OpenFile(@"D:\系统2005(V2.0)\measureremark\11000300.cll", "");
         }
 
         private void OnExit(object sender, EventArgs e)
@@ -27,22 +29,30 @@ namespace com.echo.XT2005
 
         private void OnLinkDB(object sender, EventArgs e)
         {
-            //orgTree.Nodes.Clear();
-            if (acLinkDB.Text == Settings.Default.STR_LINKDB)
+            if (IsLinked==false)
+            {
                 GetRptOrg();
+                IsLinked = true;
+            }
             else
+            {
                 IsLinked = false;
+                orgTree.Nodes.Clear();
+            }
         }
 
         //取得报表组织数
         private void GetRptOrg()
         {
+            orgTree.Nodes.Clear();
             rptAdapter.FillByDuration(db.RPTREPORT, Settings.Default.USER_RPTID, Settings.Default.USER_BEGIN, Settings.Default.USER_END);
             if (db.RPTREPORT != null)
             {
+                d01_dictAdapter.Fill(db.D01_dict);
                 foreach (XT2007.RPTREPORTRow row in db.RPTREPORT)
                 {
-                    lvOrg.Items.Add(row.D01_dictRow.D0101 + "(" + row.ORGID + ")");
+                    TreeNode node = orgTree.Nodes.Add(row.ORGID, row.D01_dictRow.D0101 + "(" + row.ORGID + ")");
+                    node.ToolTipText = row.D01_dictRow.D0101 + "(" + row.ORGID + ")";
                 }
             }
         }
@@ -105,6 +115,7 @@ namespace com.echo.XT2005
         {
             setForm form = new setForm();
             form.ShowDialog();
+            GetRptOrg();
         }
 
         private void acSet_Update(object sender, EventArgs e)
@@ -117,11 +128,5 @@ namespace com.echo.XT2005
             acLinkDB.Text = IsLinked ? Settings.Default.STR_CLOSEDB : Settings.Default.STR_LINKDB;
             acLinkDB.ToolTipText = IsLinked ? Settings.Default.STR_CLOSEDB : Settings.Default.STR_LINKDB;
         }
-
-        private void orgTree_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

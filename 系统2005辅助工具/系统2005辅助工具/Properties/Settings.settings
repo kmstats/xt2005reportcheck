@@ -59,7 +59,7 @@
       <Value Profile="(Default)">连接系统2005出错，请先启动系统20005</Value>
     </Setting>
     <Setting Name="USER_RPTID" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0200</Value>
+      <Value Profile="(Default)">1100</Value>
     </Setting>
     <Setting Name="USER_DURATION" Type="System.String" Scope="User">
       <Value Profile="(Default)">2009年度</Value>

@@ -31,10 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.menuSystem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLinkDB = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolbar = new System.Windows.Forms.ToolStrip();
             this.mainStatusbar = new System.Windows.Forms.StatusStrip();
             this.mainTab = new System.Windows.Forms.TabControl();
@@ -42,19 +39,23 @@
             this.rptPanel = new System.Windows.Forms.SplitContainer();
             this.rptLeftPanel = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.orgTree = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.rptGrid = new System.Windows.Forms.DataGridView();
             this.rptToolbar = new System.Windows.Forms.ToolStrip();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.db = new com.echo.XT2005.XT2007();
             this.d01Adapter = new com.echo.XT2005.XT2007TableAdapters.D01TableAdapter();
+            this.rptAdapter = new com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter();
+            this.d01_dictAdapter = new com.echo.XT2005.XT2007TableAdapters.D01_dictTableAdapter();
+            this.menuLinkDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainAction = new com.echo.Controls.Actions.ActionList();
             this.acLinkDB = new com.echo.Controls.Actions.Action();
             this.acSet = new com.echo.Controls.Actions.Action();
             this.acExit = new com.echo.Controls.Actions.Action();
-            this.rptAdapter = new com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter();
-            this.lvOrg = new System.Windows.Forms.ListView();
+            this.axCell1 = new AxCELL50Lib.AxCell();
             this.mainMenu.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -65,10 +66,10 @@
             this.rptLeftPanel.Panel2.SuspendLayout();
             this.rptLeftPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rptGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainAction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axCell1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -77,7 +78,7 @@
             this.menuSystem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(798, 25);
+            this.mainMenu.Size = new System.Drawing.Size(798, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -89,39 +90,17 @@
             this.toolStripMenuItem1,
             this.退出XToolStripMenuItem});
             this.menuSystem.Name = "menuSystem";
-            this.menuSystem.Size = new System.Drawing.Size(59, 21);
+            this.menuSystem.Size = new System.Drawing.Size(59, 20);
             this.menuSystem.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_SYSTEM;
-            // 
-            // menuLinkDB
-            // 
-            this.mainAction.SetAction(this.menuLinkDB, this.acLinkDB);
-            this.menuLinkDB.Name = "menuLinkDB";
-            this.menuLinkDB.Size = new System.Drawing.Size(166, 22);
-            this.menuLinkDB.Text = "连接到数据库(&L)";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.mainAction.SetAction(this.toolStripMenuItem2, this.acSet);
-            this.toolStripMenuItem2.Enabled = false;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(166, 22);
-            this.toolStripMenuItem2.Text = "设置报表参数(&O)";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(163, 6);
-            // 
-            // 退出XToolStripMenuItem
-            // 
-            this.mainAction.SetAction(this.退出XToolStripMenuItem, this.acExit);
-            this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
-            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.退出XToolStripMenuItem.Text = "退出(&X)";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(157, 6);
             // 
             // mainToolbar
             // 
-            this.mainToolbar.Location = new System.Drawing.Point(0, 25);
+            this.mainToolbar.Location = new System.Drawing.Point(0, 24);
             this.mainToolbar.Name = "mainToolbar";
             this.mainToolbar.Size = new System.Drawing.Size(798, 25);
             this.mainToolbar.TabIndex = 1;
@@ -140,19 +119,19 @@
             this.mainTab.Controls.Add(this.tabPage1);
             this.mainTab.Controls.Add(this.tabPage2);
             this.mainTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainTab.Location = new System.Drawing.Point(0, 50);
+            this.mainTab.Location = new System.Drawing.Point(0, 49);
             this.mainTab.Name = "mainTab";
             this.mainTab.SelectedIndex = 0;
-            this.mainTab.Size = new System.Drawing.Size(798, 410);
+            this.mainTab.Size = new System.Drawing.Size(798, 411);
             this.mainTab.TabIndex = 3;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.rptPanel);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 21);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(790, 384);
+            this.tabPage1.Size = new System.Drawing.Size(790, 386);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_RPTCHECK;
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -169,9 +148,10 @@
             // 
             // rptPanel.Panel2
             // 
+            this.rptPanel.Panel2.Controls.Add(this.axCell1);
             this.rptPanel.Panel2.Controls.Add(this.rptGrid);
             this.rptPanel.Panel2.Controls.Add(this.rptToolbar);
-            this.rptPanel.Size = new System.Drawing.Size(784, 378);
+            this.rptPanel.Size = new System.Drawing.Size(784, 380);
             this.rptPanel.SplitterDistance = 174;
             this.rptPanel.TabIndex = 0;
             // 
@@ -189,43 +169,44 @@
             // rptLeftPanel.Panel2
             // 
             this.rptLeftPanel.Panel2.Controls.Add(this.groupBox2);
-            this.rptLeftPanel.Size = new System.Drawing.Size(174, 378);
-            this.rptLeftPanel.SplitterDistance = 202;
+            this.rptLeftPanel.Size = new System.Drawing.Size(174, 380);
+            this.rptLeftPanel.SplitterDistance = 203;
             this.rptLeftPanel.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lvOrg);
+            this.groupBox1.Controls.Add(this.orgTree);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(174, 202);
+            this.groupBox1.Size = new System.Drawing.Size(174, 203);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_ORGTREE;
             // 
+            // orgTree
+            // 
+            this.orgTree.CheckBoxes = true;
+            this.orgTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orgTree.HotTracking = true;
+            this.orgTree.Indent = 14;
+            this.orgTree.Location = new System.Drawing.Point(3, 17);
+            this.orgTree.Name = "orgTree";
+            this.orgTree.ShowLines = false;
+            this.orgTree.ShowNodeToolTips = true;
+            this.orgTree.ShowRootLines = false;
+            this.orgTree.Size = new System.Drawing.Size(168, 183);
+            this.orgTree.TabIndex = 0;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listView1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(174, 172);
+            this.groupBox2.Size = new System.Drawing.Size(174, 173);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_CHECKRULE;
-            // 
-            // listView1
-            // 
-            this.listView1.CheckBoxes = true;
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView1.Location = new System.Drawing.Point(3, 17);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(168, 152);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
             // 
             // rptGrid
             // 
@@ -234,7 +215,7 @@
             this.rptGrid.Location = new System.Drawing.Point(0, 25);
             this.rptGrid.Name = "rptGrid";
             this.rptGrid.RowTemplate.Height = 23;
-            this.rptGrid.Size = new System.Drawing.Size(606, 353);
+            this.rptGrid.Size = new System.Drawing.Size(606, 355);
             this.rptGrid.TabIndex = 1;
             // 
             // rptToolbar
@@ -247,10 +228,10 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 21);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(790, 384);
+            this.tabPage2.Size = new System.Drawing.Size(790, 386);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -263,6 +244,36 @@
             // d01Adapter
             // 
             this.d01Adapter.ClearBeforeFill = true;
+            // 
+            // rptAdapter
+            // 
+            this.rptAdapter.ClearBeforeFill = true;
+            // 
+            // d01_dictAdapter
+            // 
+            this.d01_dictAdapter.ClearBeforeFill = true;
+            // 
+            // menuLinkDB
+            // 
+            this.mainAction.SetAction(this.menuLinkDB, this.acLinkDB);
+            this.menuLinkDB.Name = "menuLinkDB";
+            this.menuLinkDB.Size = new System.Drawing.Size(160, 22);
+            this.menuLinkDB.Text = "连接到数据库(&L)";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.mainAction.SetAction(this.toolStripMenuItem2, this.acSet);
+            this.toolStripMenuItem2.Enabled = false;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem2.Text = "设置报表参数(&O)";
+            // 
+            // 退出XToolStripMenuItem
+            // 
+            this.mainAction.SetAction(this.退出XToolStripMenuItem, this.acExit);
+            this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
+            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.退出XToolStripMenuItem.Text = "退出(&X)";
             // 
             // mainAction
             // 
@@ -292,20 +303,15 @@
             this.acExit.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_EXIT;
             this.acExit.Execute += new System.EventHandler(this.OnExit);
             // 
-            // rptAdapter
+            // axCell1
             // 
-            this.rptAdapter.ClearBeforeFill = true;
-            // 
-            // lvOrg
-            // 
-            this.lvOrg.CheckBoxes = true;
-            this.lvOrg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvOrg.Location = new System.Drawing.Point(3, 17);
-            this.lvOrg.MultiSelect = false;
-            this.lvOrg.Name = "lvOrg";
-            this.lvOrg.Size = new System.Drawing.Size(168, 182);
-            this.lvOrg.TabIndex = 0;
-            this.lvOrg.UseCompatibleStateImageBehavior = false;
+            this.axCell1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axCell1.Enabled = true;
+            this.axCell1.Location = new System.Drawing.Point(0, 25);
+            this.axCell1.Name = "axCell1";
+            this.axCell1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axCell1.OcxState")));
+            this.axCell1.Size = new System.Drawing.Size(606, 355);
+            this.axCell1.TabIndex = 2;
             // 
             // mainForm
             // 
@@ -336,10 +342,10 @@
             this.rptLeftPanel.Panel2.ResumeLayout(false);
             this.rptLeftPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rptGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.db)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainAction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axCell1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,11 +374,12 @@
         private System.Windows.Forms.ToolStrip rptToolbar;
         private XT2007 db;
         private com.echo.XT2005.XT2007TableAdapters.D01TableAdapter d01Adapter;
-        private System.Windows.Forms.ListView listView1;
         private com.echo.Controls.Actions.Action acSet;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter rptAdapter;
-        private System.Windows.Forms.ListView lvOrg;
+        private com.echo.XT2005.XT2007TableAdapters.D01_dictTableAdapter d01_dictAdapter;
+        private System.Windows.Forms.TreeView orgTree;
+        private AxCELL50Lib.AxCell axCell1;
     }
 }
 
