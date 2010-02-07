@@ -44,10 +44,6 @@
             this.rptGrid = new System.Windows.Forms.DataGridView();
             this.rptToolbar = new System.Windows.Forms.ToolStrip();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.db = new com.echo.XT2005.XT2007();
-            this.d01Adapter = new com.echo.XT2005.XT2007TableAdapters.D01TableAdapter();
-            this.rptAdapter = new com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter();
-            this.d01_dictAdapter = new com.echo.XT2005.XT2007TableAdapters.D01_dictTableAdapter();
             this.menuLinkDB = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +51,11 @@
             this.acLinkDB = new com.echo.Controls.Actions.Action();
             this.acSet = new com.echo.Controls.Actions.Action();
             this.acExit = new com.echo.Controls.Actions.Action();
+            this.db = new com.echo.XT2005.XT2007();
+            this.d01Adapter = new com.echo.XT2005.XT2007TableAdapters.D01TableAdapter();
+            this.rptAdapter = new com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter();
+            this.d01_dictAdapter = new com.echo.XT2005.XT2007TableAdapters.D01_dictTableAdapter();
+            this.templateAdapter = new com.echo.XT2005.XT2007TableAdapters.RPTTEMPLATETableAdapter();
             this.axCell1 = new AxCELL50Lib.AxCell();
             this.mainMenu.SuspendLayout();
             this.mainTab.SuspendLayout();
@@ -67,8 +68,8 @@
             this.rptLeftPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rptGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainAction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axCell1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,23 +237,6 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // db
-            // 
-            this.db.DataSetName = "XT2007";
-            this.db.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // d01Adapter
-            // 
-            this.d01Adapter.ClearBeforeFill = true;
-            // 
-            // rptAdapter
-            // 
-            this.rptAdapter.ClearBeforeFill = true;
-            // 
-            // d01_dictAdapter
-            // 
-            this.d01_dictAdapter.ClearBeforeFill = true;
-            // 
             // menuLinkDB
             // 
             this.mainAction.SetAction(this.menuLinkDB, this.acLinkDB);
@@ -303,6 +287,27 @@
             this.acExit.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_EXIT;
             this.acExit.Execute += new System.EventHandler(this.OnExit);
             // 
+            // db
+            // 
+            this.db.DataSetName = "XT2007";
+            this.db.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // d01Adapter
+            // 
+            this.d01Adapter.ClearBeforeFill = true;
+            // 
+            // rptAdapter
+            // 
+            this.rptAdapter.ClearBeforeFill = true;
+            // 
+            // d01_dictAdapter
+            // 
+            this.d01_dictAdapter.ClearBeforeFill = true;
+            // 
+            // templateAdapter
+            // 
+            this.templateAdapter.ClearBeforeFill = true;
+            // 
             // axCell1
             // 
             this.axCell1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -312,6 +317,7 @@
             this.axCell1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axCell1.OcxState")));
             this.axCell1.Size = new System.Drawing.Size(606, 355);
             this.axCell1.TabIndex = 2;
+            this.axCell1.MouseDClick += new AxCELL50Lib._DCell2000Events_MouseDClickEventHandler(this.axCell1_MouseDClick);
             // 
             // mainForm
             // 
@@ -343,8 +349,8 @@
             this.rptLeftPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rptGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainAction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axCell1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -379,6 +385,7 @@
         private com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter rptAdapter;
         private com.echo.XT2005.XT2007TableAdapters.D01_dictTableAdapter d01_dictAdapter;
         private System.Windows.Forms.TreeView orgTree;
+        private com.echo.XT2005.XT2007TableAdapters.RPTTEMPLATETableAdapter templateAdapter;
         private AxCELL50Lib.AxCell axCell1;
     }
 }

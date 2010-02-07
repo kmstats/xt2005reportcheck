@@ -19,7 +19,7 @@ namespace com.echo.XT2005
             System.Diagnostics.Process p = System.Diagnostics.Process.Start("regsvr32", " /s kdbole6.dll");
             p.WaitForInputIdle();
 
-            axCell1.OpenFile(@"D:\系统2005(V2.0)\measureremark\11000300.cll", "");
+            
         }
 
         private void OnExit(object sender, EventArgs e)
@@ -55,6 +55,11 @@ namespace com.echo.XT2005
                     node.ToolTipText = row.D01_dictRow.D0101 + "(" + row.ORGID + ")";
                 }
             }
+
+
+
+            templateAdapter.FillByRptID(db.RPTTEMPLATE, "11000100");
+            axCell1.ReadFromBuffer((db.RPTTEMPLATE.Rows[0] as XT2007.RPTTEMPLATERow).CONTENT);
         }
 
 
@@ -127,6 +132,11 @@ namespace com.echo.XT2005
         {
             acLinkDB.Text = IsLinked ? Settings.Default.STR_CLOSEDB : Settings.Default.STR_LINKDB;
             acLinkDB.ToolTipText = IsLinked ? Settings.Default.STR_CLOSEDB : Settings.Default.STR_LINKDB;
+        }
+
+        private void axCell1_MouseDClick(object sender, AxCELL50Lib._DCell2000Events_MouseDClickEvent e)
+        {
+            MessageBox.Show("r=" + e.row.ToString() + "  c=" + e.col.ToString());
         }
     }
 }
