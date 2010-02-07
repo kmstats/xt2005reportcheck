@@ -35,6 +35,8 @@ namespace com.echo.XT2005 {
         
         private RPTREPORTDataTable tableRPTREPORT;
         
+        private RPTTEMPLATEDataTable tableRPTTEMPLATE;
+        
         private global::System.Data.DataRelation relationD01_dict_RPTREPORT;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -77,6 +79,9 @@ namespace com.echo.XT2005 {
                 }
                 if ((ds.Tables["RPTREPORT"] != null)) {
                     base.Tables.Add(new RPTREPORTDataTable(ds.Tables["RPTREPORT"]));
+                }
+                if ((ds.Tables["RPTTEMPLATE"] != null)) {
+                    base.Tables.Add(new RPTTEMPLATEDataTable(ds.Tables["RPTTEMPLATE"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -138,6 +143,15 @@ namespace com.echo.XT2005 {
         public RPTREPORTDataTable RPTREPORT {
             get {
                 return this.tableRPTREPORT;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public RPTTEMPLATEDataTable RPTTEMPLATE {
+            get {
+                return this.tableRPTTEMPLATE;
             }
         }
         
@@ -215,6 +229,9 @@ namespace com.echo.XT2005 {
                 if ((ds.Tables["RPTREPORT"] != null)) {
                     base.Tables.Add(new RPTREPORTDataTable(ds.Tables["RPTREPORT"]));
                 }
+                if ((ds.Tables["RPTTEMPLATE"] != null)) {
+                    base.Tables.Add(new RPTTEMPLATEDataTable(ds.Tables["RPTTEMPLATE"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -275,6 +292,12 @@ namespace com.echo.XT2005 {
                     this.tableRPTREPORT.InitVars();
                 }
             }
+            this.tableRPTTEMPLATE = ((RPTTEMPLATEDataTable)(base.Tables["RPTTEMPLATE"]));
+            if ((initTable == true)) {
+                if ((this.tableRPTTEMPLATE != null)) {
+                    this.tableRPTTEMPLATE.InitVars();
+                }
+            }
             this.relationD01_dict_RPTREPORT = this.Relations["D01_dict_RPTREPORT"];
         }
         
@@ -295,6 +318,8 @@ namespace com.echo.XT2005 {
             base.Tables.Add(this.tableD01_dict);
             this.tableRPTREPORT = new RPTREPORTDataTable();
             base.Tables.Add(this.tableRPTREPORT);
+            this.tableRPTTEMPLATE = new RPTTEMPLATEDataTable();
+            base.Tables.Add(this.tableRPTTEMPLATE);
             this.relationD01_dict_RPTREPORT = new global::System.Data.DataRelation("D01_dict_RPTREPORT", new global::System.Data.DataColumn[] {
                         this.tableD01_dict.D0107Column}, new global::System.Data.DataColumn[] {
                         this.tableRPTREPORT.ORGIDColumn}, false);
@@ -324,6 +349,11 @@ namespace com.echo.XT2005 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeRPTREPORT() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeRPTTEMPLATE() {
             return false;
         }
         
@@ -389,6 +419,8 @@ namespace com.echo.XT2005 {
         public delegate void D01_dictRowChangeEventHandler(object sender, D01_dictRowChangeEvent e);
         
         public delegate void RPTREPORTRowChangeEventHandler(object sender, RPTREPORTRowChangeEvent e);
+        
+        public delegate void RPTTEMPLATERowChangeEventHandler(object sender, RPTTEMPLATERowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2032,6 +2064,412 @@ namespace com.echo.XT2005 {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class RPTTEMPLATEDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            
+            private global::System.Data.DataColumn columnRPTID;
+            
+            private global::System.Data.DataColumn columnVERSION;
+            
+            private global::System.Data.DataColumn columnNAME;
+            
+            private global::System.Data.DataColumn columnTYPE;
+            
+            private global::System.Data.DataColumn columnCONTENT;
+            
+            private global::System.Data.DataColumn columnREMARKS;
+            
+            private global::System.Data.DataColumn columnVALIDTIMEBEGIN;
+            
+            private global::System.Data.DataColumn columnVALIDTIMEEND;
+            
+            private global::System.Data.DataColumn columnRPTTYPE;
+            
+            private global::System.Data.DataColumn columnMODIFIABLE;
+            
+            private global::System.Data.DataColumn columnMODIPASSWORD;
+            
+            private global::System.Data.DataColumn columnDATASOURCETYPE;
+            
+            private global::System.Data.DataColumn columnCALTYPE;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTTEMPLATEDataTable() {
+                this.TableName = "RPTTEMPLATE";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal RPTTEMPLATEDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected RPTTEMPLATEDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn RPTIDColumn {
+                get {
+                    return this.columnRPTID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn VERSIONColumn {
+                get {
+                    return this.columnVERSION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NAMEColumn {
+                get {
+                    return this.columnNAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TYPEColumn {
+                get {
+                    return this.columnTYPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CONTENTColumn {
+                get {
+                    return this.columnCONTENT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn REMARKSColumn {
+                get {
+                    return this.columnREMARKS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn VALIDTIMEBEGINColumn {
+                get {
+                    return this.columnVALIDTIMEBEGIN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn VALIDTIMEENDColumn {
+                get {
+                    return this.columnVALIDTIMEEND;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn RPTTYPEColumn {
+                get {
+                    return this.columnRPTTYPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MODIFIABLEColumn {
+                get {
+                    return this.columnMODIFIABLE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MODIPASSWORDColumn {
+                get {
+                    return this.columnMODIPASSWORD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DATASOURCETYPEColumn {
+                get {
+                    return this.columnDATASOURCETYPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CALTYPEColumn {
+                get {
+                    return this.columnCALTYPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTTEMPLATERow this[int index] {
+                get {
+                    return ((RPTTEMPLATERow)(this.Rows[index]));
+                }
+            }
+            
+            public event RPTTEMPLATERowChangeEventHandler RPTTEMPLATERowChanging;
+            
+            public event RPTTEMPLATERowChangeEventHandler RPTTEMPLATERowChanged;
+            
+            public event RPTTEMPLATERowChangeEventHandler RPTTEMPLATERowDeleting;
+            
+            public event RPTTEMPLATERowChangeEventHandler RPTTEMPLATERowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddRPTTEMPLATERow(RPTTEMPLATERow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTTEMPLATERow AddRPTTEMPLATERow(string RPTID, string VERSION, string NAME, string TYPE, byte[] CONTENT, string REMARKS, System.DateTime VALIDTIMEBEGIN, System.DateTime VALIDTIMEEND, int RPTTYPE, string MODIFIABLE, string MODIPASSWORD, string DATASOURCETYPE, int CALTYPE) {
+                RPTTEMPLATERow rowRPTTEMPLATERow = ((RPTTEMPLATERow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        RPTID,
+                        VERSION,
+                        NAME,
+                        TYPE,
+                        CONTENT,
+                        REMARKS,
+                        VALIDTIMEBEGIN,
+                        VALIDTIMEEND,
+                        RPTTYPE,
+                        MODIFIABLE,
+                        MODIPASSWORD,
+                        DATASOURCETYPE,
+                        CALTYPE};
+                rowRPTTEMPLATERow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRPTTEMPLATERow);
+                return rowRPTTEMPLATERow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTTEMPLATERow FindByRPTIDVERSION(string RPTID, string VERSION) {
+                return ((RPTTEMPLATERow)(this.Rows.Find(new object[] {
+                            RPTID,
+                            VERSION})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                RPTTEMPLATEDataTable cln = ((RPTTEMPLATEDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new RPTTEMPLATEDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnRPTID = base.Columns["RPTID"];
+                this.columnVERSION = base.Columns["VERSION"];
+                this.columnNAME = base.Columns["NAME"];
+                this.columnTYPE = base.Columns["TYPE"];
+                this.columnCONTENT = base.Columns["CONTENT"];
+                this.columnREMARKS = base.Columns["REMARKS"];
+                this.columnVALIDTIMEBEGIN = base.Columns["VALIDTIMEBEGIN"];
+                this.columnVALIDTIMEEND = base.Columns["VALIDTIMEEND"];
+                this.columnRPTTYPE = base.Columns["RPTTYPE"];
+                this.columnMODIFIABLE = base.Columns["MODIFIABLE"];
+                this.columnMODIPASSWORD = base.Columns["MODIPASSWORD"];
+                this.columnDATASOURCETYPE = base.Columns["DATASOURCETYPE"];
+                this.columnCALTYPE = base.Columns["CALTYPE"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnRPTID = new global::System.Data.DataColumn("RPTID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRPTID);
+                this.columnVERSION = new global::System.Data.DataColumn("VERSION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVERSION);
+                this.columnNAME = new global::System.Data.DataColumn("NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNAME);
+                this.columnTYPE = new global::System.Data.DataColumn("TYPE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTYPE);
+                this.columnCONTENT = new global::System.Data.DataColumn("CONTENT", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCONTENT);
+                this.columnREMARKS = new global::System.Data.DataColumn("REMARKS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREMARKS);
+                this.columnVALIDTIMEBEGIN = new global::System.Data.DataColumn("VALIDTIMEBEGIN", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVALIDTIMEBEGIN);
+                this.columnVALIDTIMEEND = new global::System.Data.DataColumn("VALIDTIMEEND", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVALIDTIMEEND);
+                this.columnRPTTYPE = new global::System.Data.DataColumn("RPTTYPE", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRPTTYPE);
+                this.columnMODIFIABLE = new global::System.Data.DataColumn("MODIFIABLE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMODIFIABLE);
+                this.columnMODIPASSWORD = new global::System.Data.DataColumn("MODIPASSWORD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMODIPASSWORD);
+                this.columnDATASOURCETYPE = new global::System.Data.DataColumn("DATASOURCETYPE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDATASOURCETYPE);
+                this.columnCALTYPE = new global::System.Data.DataColumn("CALTYPE", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCALTYPE);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnRPTID,
+                                this.columnVERSION}, true));
+                this.columnRPTID.AllowDBNull = false;
+                this.columnRPTID.MaxLength = 32;
+                this.columnVERSION.AllowDBNull = false;
+                this.columnVERSION.MaxLength = 16;
+                this.columnNAME.AllowDBNull = false;
+                this.columnNAME.MaxLength = 400;
+                this.columnTYPE.AllowDBNull = false;
+                this.columnTYPE.MaxLength = 100;
+                this.columnREMARKS.MaxLength = 1073741823;
+                this.columnMODIFIABLE.MaxLength = 2;
+                this.columnMODIPASSWORD.MaxLength = 40;
+                this.columnDATASOURCETYPE.MaxLength = 2;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTTEMPLATERow NewRPTTEMPLATERow() {
+                return ((RPTTEMPLATERow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new RPTTEMPLATERow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(RPTTEMPLATERow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.RPTTEMPLATERowChanged != null)) {
+                    this.RPTTEMPLATERowChanged(this, new RPTTEMPLATERowChangeEvent(((RPTTEMPLATERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.RPTTEMPLATERowChanging != null)) {
+                    this.RPTTEMPLATERowChanging(this, new RPTTEMPLATERowChangeEvent(((RPTTEMPLATERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.RPTTEMPLATERowDeleted != null)) {
+                    this.RPTTEMPLATERowDeleted(this, new RPTTEMPLATERowChangeEvent(((RPTTEMPLATERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.RPTTEMPLATERowDeleting != null)) {
+                    this.RPTTEMPLATERowDeleting(this, new RPTTEMPLATERowChangeEvent(((RPTTEMPLATERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveRPTTEMPLATERow(RPTTEMPLATERow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                XT2007 ds = new XT2007();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "RPTTEMPLATEDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2812,6 +3250,286 @@ namespace com.echo.XT2005 {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class RPTTEMPLATERow : global::System.Data.DataRow {
+            
+            private RPTTEMPLATEDataTable tableRPTTEMPLATE;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal RPTTEMPLATERow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableRPTTEMPLATE = ((RPTTEMPLATEDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string RPTID {
+                get {
+                    return ((string)(this[this.tableRPTTEMPLATE.RPTIDColumn]));
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.RPTIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string VERSION {
+                get {
+                    return ((string)(this[this.tableRPTTEMPLATE.VERSIONColumn]));
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.VERSIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string NAME {
+                get {
+                    return ((string)(this[this.tableRPTTEMPLATE.NAMEColumn]));
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.NAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TYPE {
+                get {
+                    return ((string)(this[this.tableRPTTEMPLATE.TYPEColumn]));
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.TYPEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public byte[] CONTENT {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableRPTTEMPLATE.CONTENTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“CONTENT”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.CONTENTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string REMARKS {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPTTEMPLATE.REMARKSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“REMARKS”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.REMARKSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime VALIDTIMEBEGIN {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPTTEMPLATE.VALIDTIMEBEGINColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“VALIDTIMEBEGIN”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.VALIDTIMEBEGINColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime VALIDTIMEEND {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRPTTEMPLATE.VALIDTIMEENDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“VALIDTIMEEND”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.VALIDTIMEENDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int RPTTYPE {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPTTEMPLATE.RPTTYPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“RPTTYPE”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.RPTTYPEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string MODIFIABLE {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPTTEMPLATE.MODIFIABLEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“MODIFIABLE”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.MODIFIABLEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string MODIPASSWORD {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPTTEMPLATE.MODIPASSWORDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“MODIPASSWORD”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.MODIPASSWORDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DATASOURCETYPE {
+                get {
+                    try {
+                        return ((string)(this[this.tableRPTTEMPLATE.DATASOURCETYPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“DATASOURCETYPE”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.DATASOURCETYPEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int CALTYPE {
+                get {
+                    try {
+                        return ((int)(this[this.tableRPTTEMPLATE.CALTYPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“RPTTEMPLATE”中列“CALTYPE”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableRPTTEMPLATE.CALTYPEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCONTENTNull() {
+                return this.IsNull(this.tableRPTTEMPLATE.CONTENTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCONTENTNull() {
+                this[this.tableRPTTEMPLATE.CONTENTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsREMARKSNull() {
+                return this.IsNull(this.tableRPTTEMPLATE.REMARKSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetREMARKSNull() {
+                this[this.tableRPTTEMPLATE.REMARKSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsVALIDTIMEBEGINNull() {
+                return this.IsNull(this.tableRPTTEMPLATE.VALIDTIMEBEGINColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetVALIDTIMEBEGINNull() {
+                this[this.tableRPTTEMPLATE.VALIDTIMEBEGINColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsVALIDTIMEENDNull() {
+                return this.IsNull(this.tableRPTTEMPLATE.VALIDTIMEENDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetVALIDTIMEENDNull() {
+                this[this.tableRPTTEMPLATE.VALIDTIMEENDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsRPTTYPENull() {
+                return this.IsNull(this.tableRPTTEMPLATE.RPTTYPEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetRPTTYPENull() {
+                this[this.tableRPTTEMPLATE.RPTTYPEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMODIFIABLENull() {
+                return this.IsNull(this.tableRPTTEMPLATE.MODIFIABLEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMODIFIABLENull() {
+                this[this.tableRPTTEMPLATE.MODIFIABLEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMODIPASSWORDNull() {
+                return this.IsNull(this.tableRPTTEMPLATE.MODIPASSWORDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMODIPASSWORDNull() {
+                this[this.tableRPTTEMPLATE.MODIPASSWORDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDATASOURCETYPENull() {
+                return this.IsNull(this.tableRPTTEMPLATE.DATASOURCETYPEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDATASOURCETYPENull() {
+                this[this.tableRPTTEMPLATE.DATASOURCETYPEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCALTYPENull() {
+                return this.IsNull(this.tableRPTTEMPLATE.CALTYPEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCALTYPENull() {
+                this[this.tableRPTTEMPLATE.CALTYPEColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2953,6 +3671,37 @@ namespace com.echo.XT2005 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public RPTREPORTRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class RPTTEMPLATERowChangeEvent : global::System.EventArgs {
+            
+            private RPTTEMPLATERow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTTEMPLATERowChangeEvent(RPTTEMPLATERow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public RPTTEMPLATERow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5219,6 +5968,770 @@ namespace com.echo.XT2005.XT2007TableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class RPTTEMPLATETableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public RPTTEMPLATETableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "RPTTEMPLATE";
+            tableMapping.ColumnMappings.Add("RPTID", "RPTID");
+            tableMapping.ColumnMappings.Add("VERSION", "VERSION");
+            tableMapping.ColumnMappings.Add("NAME", "NAME");
+            tableMapping.ColumnMappings.Add("TYPE", "TYPE");
+            tableMapping.ColumnMappings.Add("CONTENT", "CONTENT");
+            tableMapping.ColumnMappings.Add("REMARKS", "REMARKS");
+            tableMapping.ColumnMappings.Add("VALIDTIMEBEGIN", "VALIDTIMEBEGIN");
+            tableMapping.ColumnMappings.Add("VALIDTIMEEND", "VALIDTIMEEND");
+            tableMapping.ColumnMappings.Add("RPTTYPE", "RPTTYPE");
+            tableMapping.ColumnMappings.Add("MODIFIABLE", "MODIFIABLE");
+            tableMapping.ColumnMappings.Add("MODIPASSWORD", "MODIPASSWORD");
+            tableMapping.ColumnMappings.Add("DATASOURCETYPE", "DATASOURCETYPE");
+            tableMapping.ColumnMappings.Add("CALTYPE", "CALTYPE");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""RPTTEMPLATE"" WHERE ((""RPTID"" = ?) AND (""VERSION"" = ?) AND (""NAME"" = ?) AND (""TYPE"" = ?) AND ((? = 1 AND ""REMARKS"" IS NULL) OR (""REMARKS"" = ?)) AND ((? = 1 AND ""VALIDTIMEBEGIN"" IS NULL) OR (""VALIDTIMEBEGIN"" = ?)) AND ((? = 1 AND ""VALIDTIMEEND"" IS NULL) OR (""VALIDTIMEEND"" = ?)) AND ((? = 1 AND ""RPTTYPE"" IS NULL) OR (""RPTTYPE"" = ?)) AND ((? = 1 AND ""MODIFIABLE"" IS NULL) OR (""MODIFIABLE"" = ?)) AND ((? = 1 AND ""MODIPASSWORD"" IS NULL) OR (""MODIPASSWORD"" = ?)) AND ((? = 1 AND ""DATASOURCETYPE"" IS NULL) OR (""DATASOURCETYPE"" = ?)) AND ((? = 1 AND ""CALTYPE"" IS NULL) OR (""CALTYPE"" = ?)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_RPTID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_VERSION", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VERSION", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NAME", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NAME", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TYPE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TYPE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_REMARKS", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "REMARKS", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_REMARKS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "REMARKS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_VALIDTIMEBEGIN", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEBEGIN", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_VALIDTIMEBEGIN", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEBEGIN", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_VALIDTIMEEND", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEEND", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_VALIDTIMEEND", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEEND", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_RPTTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTTYPE", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_RPTTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTTYPE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_MODIFIABLE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIFIABLE", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MODIFIABLE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIFIABLE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_MODIPASSWORD", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIPASSWORD", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MODIPASSWORD", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIPASSWORD", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DATASOURCETYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASOURCETYPE", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DATASOURCETYPE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASOURCETYPE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CALTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CALTYPE", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CALTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CALTYPE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"RPTTEMPLATE\" (\"RPTID\", \"VERSION\", \"NAME\", \"TYPE\", \"CONTENT\", \"REMARK" +
+                "S\", \"VALIDTIMEBEGIN\", \"VALIDTIMEEND\", \"RPTTYPE\", \"MODIFIABLE\", \"MODIPASSWORD\", \"" +
+                "DATASOURCETYPE\", \"CALTYPE\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("RPTID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("VERSION", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VERSION", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NAME", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NAME", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TYPE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CONTENT", global::System.Data.OleDb.OleDbType.LongVarBinary, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CONTENT", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("REMARKS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "REMARKS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("VALIDTIMEBEGIN", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEBEGIN", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("VALIDTIMEEND", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEEND", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("RPTTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTTYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MODIFIABLE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIFIABLE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MODIPASSWORD", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIPASSWORD", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DATASOURCETYPE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASOURCETYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CALTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CALTYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""RPTTEMPLATE"" SET ""RPTID"" = ?, ""VERSION"" = ?, ""NAME"" = ?, ""TYPE"" = ?, ""CONTENT"" = ?, ""REMARKS"" = ?, ""VALIDTIMEBEGIN"" = ?, ""VALIDTIMEEND"" = ?, ""RPTTYPE"" = ?, ""MODIFIABLE"" = ?, ""MODIPASSWORD"" = ?, ""DATASOURCETYPE"" = ?, ""CALTYPE"" = ? WHERE ((""RPTID"" = ?) AND (""VERSION"" = ?) AND (""NAME"" = ?) AND (""TYPE"" = ?) AND ((? = 1 AND ""REMARKS"" IS NULL) OR (""REMARKS"" = ?)) AND ((? = 1 AND ""VALIDTIMEBEGIN"" IS NULL) OR (""VALIDTIMEBEGIN"" = ?)) AND ((? = 1 AND ""VALIDTIMEEND"" IS NULL) OR (""VALIDTIMEEND"" = ?)) AND ((? = 1 AND ""RPTTYPE"" IS NULL) OR (""RPTTYPE"" = ?)) AND ((? = 1 AND ""MODIFIABLE"" IS NULL) OR (""MODIFIABLE"" = ?)) AND ((? = 1 AND ""MODIPASSWORD"" IS NULL) OR (""MODIPASSWORD"" = ?)) AND ((? = 1 AND ""DATASOURCETYPE"" IS NULL) OR (""DATASOURCETYPE"" = ?)) AND ((? = 1 AND ""CALTYPE"" IS NULL) OR (""CALTYPE"" = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("RPTID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("VERSION", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VERSION", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NAME", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NAME", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TYPE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CONTENT", global::System.Data.OleDb.OleDbType.LongVarBinary, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CONTENT", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("REMARKS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "REMARKS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("VALIDTIMEBEGIN", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEBEGIN", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("VALIDTIMEEND", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEEND", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("RPTTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTTYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MODIFIABLE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIFIABLE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MODIPASSWORD", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIPASSWORD", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DATASOURCETYPE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASOURCETYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CALTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CALTYPE", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_RPTID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_VERSION", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VERSION", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NAME", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NAME", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TYPE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TYPE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_REMARKS", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "REMARKS", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_REMARKS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "REMARKS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_VALIDTIMEBEGIN", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEBEGIN", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_VALIDTIMEBEGIN", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEBEGIN", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_VALIDTIMEEND", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEEND", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_VALIDTIMEEND", global::System.Data.OleDb.OleDbType.DBTimeStamp, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "VALIDTIMEEND", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_RPTTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTTYPE", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_RPTTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTTYPE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_MODIFIABLE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIFIABLE", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MODIFIABLE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIFIABLE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_MODIPASSWORD", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIPASSWORD", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MODIPASSWORD", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MODIPASSWORD", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DATASOURCETYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASOURCETYPE", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DATASOURCETYPE", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DATASOURCETYPE", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CALTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CALTYPE", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CALTYPE", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CALTYPE", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::com.echo.XT2005.Properties.Settings.Default.ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \"RPTID\", \"VERSION\", \"NAME\", \"TYPE\", \"CONTENT\", \"REMARKS\", \"VALIDTIMEBEGIN\"" +
+                ", \"VALIDTIMEEND\", \"RPTTYPE\", \"MODIFIABLE\", \"MODIPASSWORD\", \"DATASOURCETYPE\", \"CA" +
+                "LTYPE\" FROM \"PUBLIC\".\"RPTTEMPLATE\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT RPTID, VERSION, NAME, TYPE, CONTENT, REMARKS, VALIDTIMEBEGIN, \r\n      VALI" +
+                "DTIMEEND, RPTTYPE, MODIFIABLE, MODIPASSWORD, DATASOURCETYPE, \r\n      CALTYPE\r\nFR" +
+                "OM \"PUBLIC\".RPTTEMPLATE\r\nWHERE (RPTID = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("RPTID", global::System.Data.OleDb.OleDbType.WChar, 32, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RPTID", global::System.Data.DataRowVersion.Current, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(XT2007.RPTTEMPLATEDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual XT2007.RPTTEMPLATEDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            XT2007.RPTTEMPLATEDataTable dataTable = new XT2007.RPTTEMPLATEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByRptID(XT2007.RPTTEMPLATEDataTable dataTable, string RPTID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((RPTID == null)) {
+                throw new global::System.ArgumentNullException("RPTID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(RPTID));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual XT2007.RPTTEMPLATEDataTable GetDataByRptID(string RPTID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((RPTID == null)) {
+                throw new global::System.ArgumentNullException("RPTID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(RPTID));
+            }
+            XT2007.RPTTEMPLATEDataTable dataTable = new XT2007.RPTTEMPLATEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(XT2007.RPTTEMPLATEDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(XT2007 dataSet) {
+            return this.Adapter.Update(dataSet, "RPTTEMPLATE");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_RPTID, string Original_VERSION, string Original_NAME, string Original_TYPE, string Original_REMARKS, global::System.Nullable<global::System.DateTime> Original_VALIDTIMEBEGIN, global::System.Nullable<global::System.DateTime> Original_VALIDTIMEEND, global::System.Nullable<int> Original_RPTTYPE, string Original_MODIFIABLE, string Original_MODIPASSWORD, string Original_DATASOURCETYPE, global::System.Nullable<int> Original_CALTYPE) {
+            if ((Original_RPTID == null)) {
+                throw new global::System.ArgumentNullException("Original_RPTID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_RPTID));
+            }
+            if ((Original_VERSION == null)) {
+                throw new global::System.ArgumentNullException("Original_VERSION");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_VERSION));
+            }
+            if ((Original_NAME == null)) {
+                throw new global::System.ArgumentNullException("Original_NAME");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_NAME));
+            }
+            if ((Original_TYPE == null)) {
+                throw new global::System.ArgumentNullException("Original_TYPE");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_TYPE));
+            }
+            if ((Original_REMARKS == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_REMARKS));
+            }
+            if ((Original_VALIDTIMEBEGIN.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_VALIDTIMEBEGIN.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_VALIDTIMEEND.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_VALIDTIMEEND.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_RPTTYPE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_RPTTYPE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MODIFIABLE == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_MODIFIABLE));
+            }
+            if ((Original_MODIPASSWORD == null)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_MODIPASSWORD));
+            }
+            if ((Original_DATASOURCETYPE == null)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_DATASOURCETYPE));
+            }
+            if ((Original_CALTYPE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((int)(Original_CALTYPE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string RPTID, string VERSION, string NAME, string TYPE, byte[] CONTENT, string REMARKS, global::System.Nullable<global::System.DateTime> VALIDTIMEBEGIN, global::System.Nullable<global::System.DateTime> VALIDTIMEEND, global::System.Nullable<int> RPTTYPE, string MODIFIABLE, string MODIPASSWORD, string DATASOURCETYPE, global::System.Nullable<int> CALTYPE) {
+            if ((RPTID == null)) {
+                throw new global::System.ArgumentNullException("RPTID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RPTID));
+            }
+            if ((VERSION == null)) {
+                throw new global::System.ArgumentNullException("VERSION");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(VERSION));
+            }
+            if ((NAME == null)) {
+                throw new global::System.ArgumentNullException("NAME");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(NAME));
+            }
+            if ((TYPE == null)) {
+                throw new global::System.ArgumentNullException("TYPE");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(TYPE));
+            }
+            if ((CONTENT == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((byte[])(CONTENT));
+            }
+            if ((REMARKS == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(REMARKS));
+            }
+            if ((VALIDTIMEBEGIN.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(VALIDTIMEBEGIN.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((VALIDTIMEEND.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(VALIDTIMEEND.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((RPTTYPE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(RPTTYPE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((MODIFIABLE == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(MODIFIABLE));
+            }
+            if ((MODIPASSWORD == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(MODIPASSWORD));
+            }
+            if ((DATASOURCETYPE == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(DATASOURCETYPE));
+            }
+            if ((CALTYPE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((int)(CALTYPE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string RPTID, 
+                    string VERSION, 
+                    string NAME, 
+                    string TYPE, 
+                    byte[] CONTENT, 
+                    string REMARKS, 
+                    global::System.Nullable<global::System.DateTime> VALIDTIMEBEGIN, 
+                    global::System.Nullable<global::System.DateTime> VALIDTIMEEND, 
+                    global::System.Nullable<int> RPTTYPE, 
+                    string MODIFIABLE, 
+                    string MODIPASSWORD, 
+                    string DATASOURCETYPE, 
+                    global::System.Nullable<int> CALTYPE, 
+                    string Original_RPTID, 
+                    string Original_VERSION, 
+                    string Original_NAME, 
+                    string Original_TYPE, 
+                    string Original_REMARKS, 
+                    global::System.Nullable<global::System.DateTime> Original_VALIDTIMEBEGIN, 
+                    global::System.Nullable<global::System.DateTime> Original_VALIDTIMEEND, 
+                    global::System.Nullable<int> Original_RPTTYPE, 
+                    string Original_MODIFIABLE, 
+                    string Original_MODIPASSWORD, 
+                    string Original_DATASOURCETYPE, 
+                    global::System.Nullable<int> Original_CALTYPE) {
+            if ((RPTID == null)) {
+                throw new global::System.ArgumentNullException("RPTID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RPTID));
+            }
+            if ((VERSION == null)) {
+                throw new global::System.ArgumentNullException("VERSION");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(VERSION));
+            }
+            if ((NAME == null)) {
+                throw new global::System.ArgumentNullException("NAME");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(NAME));
+            }
+            if ((TYPE == null)) {
+                throw new global::System.ArgumentNullException("TYPE");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(TYPE));
+            }
+            if ((CONTENT == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((byte[])(CONTENT));
+            }
+            if ((REMARKS == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(REMARKS));
+            }
+            if ((VALIDTIMEBEGIN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(VALIDTIMEBEGIN.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((VALIDTIMEEND.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(VALIDTIMEEND.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((RPTTYPE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(RPTTYPE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((MODIFIABLE == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(MODIFIABLE));
+            }
+            if ((MODIPASSWORD == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(MODIPASSWORD));
+            }
+            if ((DATASOURCETYPE == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(DATASOURCETYPE));
+            }
+            if ((CALTYPE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(CALTYPE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_RPTID == null)) {
+                throw new global::System.ArgumentNullException("Original_RPTID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_RPTID));
+            }
+            if ((Original_VERSION == null)) {
+                throw new global::System.ArgumentNullException("Original_VERSION");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_VERSION));
+            }
+            if ((Original_NAME == null)) {
+                throw new global::System.ArgumentNullException("Original_NAME");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_NAME));
+            }
+            if ((Original_TYPE == null)) {
+                throw new global::System.ArgumentNullException("Original_TYPE");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_TYPE));
+            }
+            if ((Original_REMARKS == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_REMARKS));
+            }
+            if ((Original_VALIDTIMEBEGIN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_VALIDTIMEBEGIN.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_VALIDTIMEEND.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_VALIDTIMEEND.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Original_RPTTYPE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_RPTTYPE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MODIFIABLE == null)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_MODIFIABLE));
+            }
+            if ((Original_MODIPASSWORD == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_MODIPASSWORD));
+            }
+            if ((Original_DATASOURCETYPE == null)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_DATASOURCETYPE));
+            }
+            if ((Original_CALTYPE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_CALTYPE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string NAME, 
+                    string TYPE, 
+                    byte[] CONTENT, 
+                    string REMARKS, 
+                    global::System.Nullable<global::System.DateTime> VALIDTIMEBEGIN, 
+                    global::System.Nullable<global::System.DateTime> VALIDTIMEEND, 
+                    global::System.Nullable<int> RPTTYPE, 
+                    string MODIFIABLE, 
+                    string MODIPASSWORD, 
+                    string DATASOURCETYPE, 
+                    global::System.Nullable<int> CALTYPE, 
+                    string Original_RPTID, 
+                    string Original_VERSION, 
+                    string Original_NAME, 
+                    string Original_TYPE, 
+                    string Original_REMARKS, 
+                    global::System.Nullable<global::System.DateTime> Original_VALIDTIMEBEGIN, 
+                    global::System.Nullable<global::System.DateTime> Original_VALIDTIMEEND, 
+                    global::System.Nullable<int> Original_RPTTYPE, 
+                    string Original_MODIFIABLE, 
+                    string Original_MODIPASSWORD, 
+                    string Original_DATASOURCETYPE, 
+                    global::System.Nullable<int> Original_CALTYPE) {
+            return this.Update(Original_RPTID, Original_VERSION, NAME, TYPE, CONTENT, REMARKS, VALIDTIMEBEGIN, VALIDTIMEEND, RPTTYPE, MODIFIABLE, MODIPASSWORD, DATASOURCETYPE, CALTYPE, Original_RPTID, Original_VERSION, Original_NAME, Original_TYPE, Original_REMARKS, Original_VALIDTIMEBEGIN, Original_VALIDTIMEEND, Original_RPTTYPE, Original_MODIFIABLE, Original_MODIPASSWORD, Original_DATASOURCETYPE, Original_CALTYPE);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -5240,6 +6753,8 @@ namespace com.echo.XT2005.XT2007TableAdapters {
         private D01_dictTableAdapter _d01_dictTableAdapter;
         
         private RPTREPORTTableAdapter _rPTREPORTTableAdapter;
+        
+        private RPTTEMPLATETableAdapter _rPTTEMPLATETableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -5321,6 +6836,19 @@ namespace com.echo.XT2005.XT2007TableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
+            "", "System.Drawing.Design.UITypeEditor")]
+        public RPTTEMPLATETableAdapter RPTTEMPLATETableAdapter {
+            get {
+                return this._rPTTEMPLATETableAdapter;
+            }
+            set {
+                this._rPTTEMPLATETableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -5357,6 +6885,10 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                             && (this._rPTREPORTTableAdapter.Connection != null))) {
                     return this._rPTREPORTTableAdapter.Connection;
                 }
+                if (((this._rPTTEMPLATETableAdapter != null) 
+                            && (this._rPTTEMPLATETableAdapter.Connection != null))) {
+                    return this._rPTTEMPLATETableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -5384,6 +6916,9 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                 if ((this._rPTREPORTTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._rPTTEMPLATETableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -5403,21 +6938,21 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._rPTTEMPLATETableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.RPTTEMPLATE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._rPTTEMPLATETableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._rPTREPORTTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.RPTREPORT.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._rPTREPORTTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._rPTTEMPLATECLASSTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5439,6 +6974,15 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._rPTTEMPLATECLASSTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -5456,19 +7000,19 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._rPTTEMPLATETableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.RPTTEMPLATE.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._rPTTEMPLATETableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._rPTREPORTTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.RPTREPORT.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._rPTREPORTTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._rPTTEMPLATECLASSTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5488,6 +7032,14 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._rPTTEMPLATECLASSTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -5497,6 +7049,14 @@ namespace com.echo.XT2005.XT2007TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateDeletedRows(XT2007 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rPTTEMPLATECLASSTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._t_RPT_DURATIONTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.T_RPT_DURATION.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -5513,19 +7073,19 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._rPTTEMPLATECLASSTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.RPTTEMPLATECLASS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rPTTEMPLATECLASSTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._rPTREPORTTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.RPTREPORT.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._rPTREPORTTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._rPTTEMPLATETableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.RPTTEMPLATE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rPTTEMPLATETableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5592,6 +7152,10 @@ namespace com.echo.XT2005.XT2007TableAdapters {
             }
             if (((this._rPTREPORTTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._rPTREPORTTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
+            }
+            if (((this._rPTTEMPLATETableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._rPTTEMPLATETableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -5668,6 +7232,15 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                     if (this._rPTREPORTTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._rPTREPORTTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._rPTREPORTTableAdapter.Adapter);
+                    }
+                }
+                if ((this._rPTTEMPLATETableAdapter != null)) {
+                    revertConnections.Add(this._rPTTEMPLATETableAdapter, this._rPTTEMPLATETableAdapter.Connection);
+                    this._rPTTEMPLATETableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._rPTTEMPLATETableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._rPTTEMPLATETableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._rPTTEMPLATETableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._rPTTEMPLATETableAdapter.Adapter);
                     }
                 }
                 // 
@@ -5747,6 +7320,10 @@ namespace com.echo.XT2005.XT2007TableAdapters {
                 if ((this._rPTREPORTTableAdapter != null)) {
                     this._rPTREPORTTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._rPTREPORTTableAdapter]));
                     this._rPTREPORTTableAdapter.Transaction = null;
+                }
+                if ((this._rPTTEMPLATETableAdapter != null)) {
+                    this._rPTTEMPLATETableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._rPTTEMPLATETableAdapter]));
+                    this._rPTTEMPLATETableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
