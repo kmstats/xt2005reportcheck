@@ -70,5 +70,14 @@
     <Setting Name="USER_END" Type="System.String" Scope="User">
       <Value Profile="(Default)">20091231</Value>
     </Setting>
+    <Setting Name="STR_SETCHECKRULE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">设置报表审核公式(&amp;R)</Value>
+    </Setting>
+    <Setting Name="STR_SETCHECKRULETITLE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">设置报表审核公式</Value>
+    </Setting>
+    <Setting Name="STR_RPTRULE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">报表审核公式</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
