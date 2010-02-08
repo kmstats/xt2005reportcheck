@@ -68,6 +68,12 @@
     <Compile Include="mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="setCheckRuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setCheckRuleForm.Designer.cs">
+      <DependentUpon>setCheckRuleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="setForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,16 @@
     <Content Include="app.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="config\chk.ini" />
+    <None Include="config\chk.xsc">
+      <DependentUpon>chk.xsd</DependentUpon>
+    </None>
+    <None Include="config\chk.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="config\chk.xss">
+      <DependentUpon>chk.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -125,6 +141,10 @@
       <DependentUpon>mainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="setCheckRuleForm.resx">
+      <DependentUpon>setCheckRuleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="setForm.resx">
       <DependentUpon>setForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -137,6 +157,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config\chk.xml" />
+    <Content Include="config\chk.xslt" />
     <Content Include="kdbole6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

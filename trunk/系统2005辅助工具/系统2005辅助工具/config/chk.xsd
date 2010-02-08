@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="chk" targetNamespace="http://tempuri.org/chk.xsd" xmlns:mstns="http://tempuri.org/chk.xsd" xmlns="http://tempuri.org/chk.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="chk" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="chk" msprop:Generator_DataSetName="chk">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Chk" msprop:Generator_UserTableName="Chk" msprop:Generator_RowDeletedName="ChkRowDeleted" msprop:Generator_TableClassName="ChkDataTable" msprop:Generator_RowChangedName="ChkRowChanged" msprop:Generator_RowClassName="ChkRow" msprop:Generator_RowChangingName="ChkRowChanging" msprop:Generator_RowEvArgName="ChkRowChangeEvent" msprop:Generator_RowEvHandlerName="ChkRowChangeEventHandler" msprop:Generator_TablePropName="Chk" msprop:Generator_TableVarName="tableChk" msprop:Generator_RowDeletingName="ChkRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:string" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CheckRule" msprop:Generator_UserColumnName="CheckRule" msprop:Generator_ColumnPropNameInRow="CheckRule" msprop:Generator_ColumnVarNameInTable="columnCheckRule" msprop:Generator_ColumnPropNameInTable="CheckRuleColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TableName" msprop:Generator_UserColumnName="TableName" msprop:Generator_ColumnPropNameInRow="TableName" msprop:Generator_ColumnVarNameInTable="columnTableName" msprop:Generator_ColumnPropNameInTable="TableNameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Catalog" msprop:Generator_UserColumnName="Catalog" msprop:Generator_ColumnPropNameInRow="Catalog" msprop:Generator_ColumnVarNameInTable="columnCatalog" msprop:Generator_ColumnPropNameInTable="CatalogColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Chk" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
