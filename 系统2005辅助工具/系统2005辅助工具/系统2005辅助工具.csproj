@@ -96,15 +96,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="config\chk.ini" />
-    <None Include="config\chk.xsc">
-      <DependentUpon>chk.xsd</DependentUpon>
-    </None>
-    <None Include="config\chk.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="config\chk.xss">
-      <DependentUpon>chk.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,8 +148,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config\chk.xml" />
-    <Content Include="config\chk.xslt" />
     <Content Include="kdbole6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
