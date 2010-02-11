@@ -138,5 +138,11 @@ namespace com.echo.XT2005
         {
             MessageBox.Show("r=" + e.row.ToString() + "  c=" + e.col.ToString());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            chkTableAdapter.Fill(db.CHK);
+            db.CHK.WriteXml(@"c:\aa.xml", XmlWriteMode.WriteSchema);
+        }
     }
 }
