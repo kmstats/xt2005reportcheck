@@ -31,11 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.menuSystem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLinkDB = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolbar = new System.Windows.Forms.ToolStrip();
             this.mainStatusbar = new System.Windows.Forms.StatusStrip();
             this.mainTab = new System.Windows.Forms.TabControl();
@@ -45,20 +41,26 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.orgTree = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.axCell1 = new AxCELL50Lib.AxCell();
             this.rptGrid = new System.Windows.Forms.DataGridView();
             this.rptToolbar = new System.Windows.Forms.ToolStrip();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.axCell1 = new AxCELL50Lib.AxCell();
+            this.menuLinkDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainAction = new com.echo.Controls.Actions.ActionList();
             this.acLinkDB = new com.echo.Controls.Actions.Action();
             this.acSet = new com.echo.Controls.Actions.Action();
-            this.acExit = new com.echo.Controls.Actions.Action();
             this.acSetCheckRule = new com.echo.Controls.Actions.Action();
+            this.acExit = new com.echo.Controls.Actions.Action();
             this.db = new com.echo.XT2005.XT2007();
             this.d01Adapter = new com.echo.XT2005.XT2007TableAdapters.D01TableAdapter();
             this.rptAdapter = new com.echo.XT2005.XT2007TableAdapters.RPTREPORTTableAdapter();
             this.d01_dictAdapter = new com.echo.XT2005.XT2007TableAdapters.D01_dictTableAdapter();
             this.templateAdapter = new com.echo.XT2005.XT2007TableAdapters.RPTTEMPLATETableAdapter();
+            this.chkTableAdapter = new com.echo.XT2005.XT2007TableAdapters.CHKTableAdapter();
             this.mainMenu.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -69,8 +71,8 @@
             this.rptLeftPanel.Panel2.SuspendLayout();
             this.rptLeftPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axCell1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rptGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axCell1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db)).BeginInit();
             this.SuspendLayout();
@@ -97,39 +99,10 @@
             this.menuSystem.Size = new System.Drawing.Size(59, 21);
             this.menuSystem.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_SYSTEM;
             // 
-            // menuLinkDB
-            // 
-            this.mainAction.SetAction(this.menuLinkDB, this.acLinkDB);
-            this.menuLinkDB.Name = "menuLinkDB";
-            this.menuLinkDB.Size = new System.Drawing.Size(188, 22);
-            this.menuLinkDB.Text = "连接到数据库(&L)";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.mainAction.SetAction(this.toolStripMenuItem2, this.acSet);
-            this.toolStripMenuItem2.Enabled = false;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(188, 22);
-            this.toolStripMenuItem2.Text = "设置报表参数(&O)";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.mainAction.SetAction(this.toolStripMenuItem3, this.acSetCheckRule);
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(188, 22);
-            this.toolStripMenuItem3.Text = "设置报表审核公式(&R)";
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(185, 6);
-            // 
-            // 退出XToolStripMenuItem
-            // 
-            this.mainAction.SetAction(this.退出XToolStripMenuItem, this.acExit);
-            this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
-            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.退出XToolStripMenuItem.Text = "退出(&X)";
             // 
             // mainToolbar
             // 
@@ -181,6 +154,7 @@
             // 
             // rptPanel.Panel2
             // 
+            this.rptPanel.Panel2.Controls.Add(this.button1);
             this.rptPanel.Panel2.Controls.Add(this.axCell1);
             this.rptPanel.Panel2.Controls.Add(this.rptGrid);
             this.rptPanel.Panel2.Controls.Add(this.rptToolbar);
@@ -241,17 +215,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_CHECKRULE;
             // 
-            // axCell1
-            // 
-            this.axCell1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axCell1.Enabled = true;
-            this.axCell1.Location = new System.Drawing.Point(0, 25);
-            this.axCell1.Name = "axCell1";
-            this.axCell1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axCell1.OcxState")));
-            this.axCell1.Size = new System.Drawing.Size(606, 353);
-            this.axCell1.TabIndex = 2;
-            this.axCell1.MouseDClick += new AxCELL50Lib._DCell2000Events_MouseDClickEventHandler(this.axCell1_MouseDClick);
-            // 
             // rptGrid
             // 
             this.rptGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -280,6 +243,56 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(275, 174);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 51);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // axCell1
+            // 
+            this.axCell1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axCell1.Enabled = true;
+            this.axCell1.Location = new System.Drawing.Point(0, 25);
+            this.axCell1.Name = "axCell1";
+            this.axCell1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axCell1.OcxState")));
+            this.axCell1.Size = new System.Drawing.Size(606, 353);
+            this.axCell1.TabIndex = 2;
+            this.axCell1.MouseDClick += new AxCELL50Lib._DCell2000Events_MouseDClickEventHandler(this.axCell1_MouseDClick);
+            // 
+            // menuLinkDB
+            // 
+            this.mainAction.SetAction(this.menuLinkDB, this.acLinkDB);
+            this.menuLinkDB.Name = "menuLinkDB";
+            this.menuLinkDB.Size = new System.Drawing.Size(188, 22);
+            this.menuLinkDB.Text = "连接到数据库(&L)";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.mainAction.SetAction(this.toolStripMenuItem2, this.acSet);
+            this.toolStripMenuItem2.Enabled = false;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(188, 22);
+            this.toolStripMenuItem2.Text = "设置报表参数(&O)";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.mainAction.SetAction(this.toolStripMenuItem3, this.acSetCheckRule);
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(188, 22);
+            this.toolStripMenuItem3.Text = "设置报表审核公式(&R)";
+            // 
+            // 退出XToolStripMenuItem
+            // 
+            this.mainAction.SetAction(this.退出XToolStripMenuItem, this.acExit);
+            this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
+            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.退出XToolStripMenuItem.Text = "退出(&X)";
+            // 
             // mainAction
             // 
             this.mainAction.Actions.Add(this.acExit);
@@ -303,16 +316,16 @@
             this.acSet.Update += new System.EventHandler(this.acSet_Update);
             this.acSet.Execute += new System.EventHandler(this.OnSet);
             // 
+            // acSetCheckRule
+            // 
+            this.acSetCheckRule.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_SETCHECKRULE;
+            this.acSetCheckRule.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_SETCHECKRULE;
+            // 
             // acExit
             // 
             this.acExit.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_EXIT;
             this.acExit.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_EXIT;
             this.acExit.Execute += new System.EventHandler(this.OnExit);
-            // 
-            // acSetCheckRule
-            // 
-            this.acSetCheckRule.Text = global::com.echo.XT2005.Properties.Settings.Default.STR_SETCHECKRULE;
-            this.acSetCheckRule.ToolTipText = global::com.echo.XT2005.Properties.Settings.Default.STR_SETCHECKRULE;
             // 
             // db
             // 
@@ -334,6 +347,10 @@
             // templateAdapter
             // 
             this.templateAdapter.ClearBeforeFill = true;
+            // 
+            // chkTableAdapter
+            // 
+            this.chkTableAdapter.ClearBeforeFill = true;
             // 
             // mainForm
             // 
@@ -364,8 +381,8 @@
             this.rptLeftPanel.Panel2.ResumeLayout(false);
             this.rptLeftPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axCell1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rptGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axCell1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.db)).EndInit();
             this.ResumeLayout(false);
@@ -405,6 +422,8 @@
         private AxCELL50Lib.AxCell axCell1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private com.echo.Controls.Actions.Action acSetCheckRule;
+        private System.Windows.Forms.Button button1;
+        private com.echo.XT2005.XT2007TableAdapters.CHKTableAdapter chkTableAdapter;
     }
 }
 
